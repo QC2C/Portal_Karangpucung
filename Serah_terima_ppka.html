@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Serah Terima Dinas PPKA</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #0071CE;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    /* Modal */
+    #modalForm {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.5);
+    }
+
+    #modalForm .modal-content {
+      background-color: #fff;
+      margin: 5% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 90%;
+      max-width: 900px;
+      border-radius: 10px;
+      animation: fadeIn 0.5s;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .form-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .form-row label {
+      width: 250px;
+      font-weight: bold;
+      font-size: 15;
+    }
+
+    .form-row input,
+    .form-row select,
+    .form-row textarea {
+      flex: 1;
+      padding: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+      /* Tambahkan bagian ini untuk memperkecil font */
+  .form-row label,
+  .form-row input,
+  .form-row select,
+  .form-row textarea {
+    font-size: 12px;
+  }
+
+    /* Custom calendar icon for date input */
+    .form-row input[type="date"]::-webkit-calendar-picker-indicator {
+      background-color: #0071CE;
+      border-radius: 50%;
+      padding: 5px;
+    }
+
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      #modalForm, #modalForm * {
+        visibility: visible;
+      }
+      #modalForm {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        background: white !important;
+        box-shadow: none !important;
+        overflow: visible !important;
+      }
+      #modalForm .form-row {
+        break-inside: avoid;
+      }
+      #modalForm span[onclick] {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+
+
+
+
+<!-- Tombol untuk membuka modal -->
+<button onclick="document.getElementById('modalForm').style.display='block'" style="padding: 10px 20px; font-size: 16px; background-color: #0071CE; color: white; border: none; border-radius: 5px; cursor: pointer;">
+  Form Serah Terima Ppka
+</button>
+
+
+<!-- Modal -->
+<div id="modalForm" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; overflow:auto; background-color: rgba(0,0,0,0.5);">
+  <div style="background-color: #fff; margin: 5% auto; padding: 20px; border: 1px solid #888; width: 90%; max-width: 900px; border-radius: 10px; animation: fadeIn 0.5s;">
+    <span onclick="document.getElementById('modalForm').style.display='none'" style="color:#aaa; float:right; font-size:28px; font-weight:bold; cursor:pointer;">&times;</span>
+
+    <div style="max-width: 800px; margin: auto; padding: 20px; border-radius: 10px; background-color: #f9f9f9; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); font-family: Arial, sans-serif;">
+      <h2 style="text-align: center; color: #333;">Serah Terima Dinas PPKA</h2>
+      <form id="serahTerimaForm" action="#" method="post" style="display: flex; flex-direction: column; gap: 20px;" onsubmit="return validateForm()">
+        <style>
+          .form-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+          }
+          .form-row label {
+            width: 250px;
+            font-weight: bold;
+          }
+          .form-row input, .form-row select, .form-row textarea {
+            flex: 1;
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+          }
+          /* Custom calendar icon for date input */
+          .form-row input[type="date"]::-webkit-calendar-picker-indicator {
+            background-color: #0071CE;
+            border-radius: 50%;
+            padding: 5px;
+          }
+          @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+          }
+        @media print {
+            body * {
+              visibility: hidden;
+            }
+            #modalForm, #modalForm * {
+              visibility: visible;
+            }
+            #modalForm {
+              position: absolute !important;
+              top: 0 !important;
+              left: 0 !important;
+              width: 100% !important;
+              height: auto !important;
+              background: white !important;
+              box-shadow: none !important;
+              overflow: visible !important;
+            }
+            #modalForm .form-row {
+              break-inside: avoid;
+            }
+            #modalForm span[onclick] {
+              display: none !important;
+            }
+          }
+        </style>
+
+<!-- FORM CONTENT START -->
+<fieldset style="border: none;">
+  <legend><strong style="color: #0071CE;">Informasi Umum</strong></legend>
+  <div class="form-row"><label>Hari:</label>
+    <select name="hari">
+      <option value="Ahad">Ahad</option>
+      <option value="Senin">Senin</option>
+      <option value="Selasa">Selasa</option>
+      <option value="Rabu">Rabu</option>
+      <option value="Kamis">Kamis</option>
+      <option value="Jumat">Jum'at</option>
+      <option value="Sabtu">Sabtu</option>
+    </select>
+  </div>
+  <div class="form-row"><label>Tanggal:</label>
+    <input type="date" name="tanggal">
+  </div>
+  <div class="form-row"><label>Jam:</label>
+    <input type="time" name="jam" step="3600">
+  </div>
+  <div class="form-row"><label>Dinas PPKA dari:</label>
+    <select name="dari_dinas">
+      <option value="">-</option>
+      <option value="Pagi">Pagi</option>
+      <option value="Siang">Siang</option>
+      <option value="Malam">Malam</option>
+    </select>
+  </div>
+  <div class="form-row"><label>Ke Dinas PPKA:</label>
+    <select name="ke_dinas">
+      <option value="">-</option>
+      <option value="Pagi">Pagi</option>
+      <option value="Siang">Siang</option>
+      <option value="Malam">Malam</option>
+    </select>
+  </div>
+</fieldset>
+
+<fieldset style="border: none;">
+  <legend><strong style="color: #0071CE;">KA-KA</strong></legend>
+  <div class="form-row"><label>Belum Berangkat:</label>
+    <input type="text" name="ka_berangkat" placeholder="Masukkan data Ka Berangkat">
+  </div>
+  <div class="form-row"><label>Belum Masuk:</label>
+    <input type="text" name="ka_belum_masuk" placeholder="Masukkan data Belum Masuk">
+  </div>
+  <div class="form-row"><label>Batal:</label>
+    <input type="text" name="ka_batal" placeholder="Masukkan data Batal">
+  </div>
+  <div class="form-row"><label>Fak/PLB/KLB yang jalan:</label>
+    <input type="text" name="ka_fak_plb_klb" placeholder="Masukkan data Fak/PLB/KLB">
+  </div>
+</fieldset>
+
+
+<fieldset style="border: none;">
+  <legend><strong style="color: #0071CE;">Keadaan Jalur</strong></legend>
+  <div class="form-row"><label>Jalur I:</label>
+    <select name="hub_blok">
+      <option value="Normal">Kosong</option>
+      <option value="Gangguan">Isi</option>
+    </select>
+  </div>
+  <div class="form-row"><label>Jalur II:</label>
+    <select name="hub_blok">
+      <option value="Normal">Kosong</option>
+      <option value="Gangguan">Isi</option>
+    </select>
+  </div>
+</fieldset>
+
+<fieldset style="border: none;">
+  <legend><strong style="color: #0071CE;">Alat Pengamanan</strong></legend>
+  <div class="form-row"><label>Hubungan Blok:</label>
+    <select name="hub_blok">
+      <option value="Normal">Normal</option>
+      <option value="Gangguan">Gangguan</option>
+      <option value="Tutup">Tutup</option>
+    </select>
+  </div>
+  <!-- More dropdowns for the "Alat Pengamanan" section -->
+</fieldset>
+
+<fieldset style="border: none;">
+  <legend><strong style="color: #0071CE;">Warta Dinas / Dokumentasi Penting</strong></legend>
+  <div class="form-row"><label>Nomor pemindahan persilangan:</label>
+    <select name="warta_persilangan">
+      <option value="001">001</option>
+      <option value="002">002</option>
+      <option value="003">003</option>
+    </select>
+  </div>
+  <div class="form-row"><label>Nomor berjalan hati-hati:</label>
+    <select name="warta_hati">
+      <option value="A">A</option>
+      <option value="B">B</option>
+      <option value="C">C</option>
+    </select>
+  </div>
+  <!-- More dropdowns for the "Warta Dinas" section -->
+</fieldset>
+
+<fieldset style="border: none;">
+  <legend><strong style="color: #0071CE;">Tanda Tangan</strong></legend>
+  <div class="form-row"><label>Jam tanda tangan:</label>
+    <input type="time" name="jam_ttd" step="3600">
+  </div>
+  <div class="form-row"><label>PPKA Menerima (Nama):</label>
+    <select name="ppka_terima_nama">
+      <option value="Nama A">Nama A</option>
+      <option value="Nama B">Nama B</option>
+      <option value="Nama C">Nama C</option>
+    </select>
+  </div>
+</fieldset>
+
+ <div style="text-align: center;">
+          <button type="button" onclick="window.print()" style="margin-left: 10px; padding: 10px 20px; font-size: 16px; background-color: #555; color: white; border: none; border-radius: 5px; cursor: pointer;">Print</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script>
+  // Function to save form data as PDF
+  function saveAsPDF() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    // Get the form values
+    const form = document.getElementById("serahTerimaForm");
+    const formData = new FormData(form);
+    let content = "Serah Terima Dinas PPKA\n\n";
+
+    formData.forEach((value, key) => {
+      content += `${key}: ${value}\n`;
+    });
+
+    // Add content to PDF
+    doc.text(content, 10, 10);
+    
+    // Save PDF
+    doc.save('form_serah_terima.pdf');
+  }
+
+  // Close the modal when clicking outside the modal content
+  window.onclick = function(event) {
+    var modal = document.getElementById('modalForm');
+    if (event.target === modal) {
+      modal.style.display = 'none';
+    }
+  };
+
+  // Form validation
+  function validateForm() {
+    // You can add specific validation checks here if needed
+    return true;
+  }
+
+  // Custom Print Function
+  function printForm() {
+    const modal = document.getElementById('modalForm');
+    const originalDisplay = modal.style.display;
+
+    modal.style.display = 'block';
+
+    setTimeout(() => {
+      window.print();
+      modal.style.display = originalDisplay;
+    }, 500);
+  }
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Set tanggal otomatis
+    const tanggalInput = document.querySelector('input[name="tanggal"]');
+    const now = new Date();
+    tanggalInput.value = now.toISOString().split('T')[0];
+
+    // Set hari otomatis
+    const hariSelect = document.querySelector('select[name="hari"]');
+    const hariList = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
+    const hariIni = hariList[now.getDay()];
+    for (let option of hariSelect.options) {
+      if (option.value === hariIni) {
+        option.selected = true;
+        break;
+      }
+    }
+
+    // Set jam otomatis format 24 jam
+    const jamInput = document.querySelector('input[name="jam"]');
+    const jamStr = now.toTimeString().split(':').slice(0,2).join(':');
+    jamInput.value = jamStr;
+  });
+</script>

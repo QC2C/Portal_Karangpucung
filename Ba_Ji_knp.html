@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Berita Acara Pemeriksaan Bersama</title>
+  <style>
+@page {
+  size: A4 portrait;
+  margin: 15mm 15mm 15mm 15mm; /* margin lebih kecil agar muat */
+}
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20mm auto;
+      width: 210mm;
+      max-width: 100%;
+      line-height: 1.6;
+    }
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5mm;
+}
+.header img {
+  height: 50px; /* agak kecil agar muat */
+}
+    .title {
+      text-align: center;
+      margin-top: 20px;
+    }
+.title h2 {
+  margin: 5px 0;
+  font-size: 14pt;
+}
+.section {
+  margin-top: 8px;
+  font-size: 12pt;
+}
+    .section ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .team-table, .info-table {
+      border-collapse: collapse;
+    }
+    .team-table td, .info-table td {
+      padding: 4px 10px;
+      vertical-align: top;
+    }
+    .ttd {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 50px;
+      flex-wrap: wrap;
+    }
+    .ttd div {
+      text-align: center;
+      width: 30%;
+      margin-bottom: 30px;
+    }
+    .bold {
+      font-weight: bold;
+    }
+    .underline {
+      text-decoration: underline;
+    }
+    input[type="text"], input[type="date"], input[type="time"] {
+      border: none;
+      border-bottom: 1px solid #000;
+      width: 200px;
+    }
+    input[type="file"] {
+      margin-top: 10px;
+    }
+    .photo-preview {
+      margin-top: 10px;
+      max-width: 100px;
+      max-height: 100px;
+    }
+.ttd {
+  justify-content: space-between;
+  flex-wrap: nowrap; /* supaya tanda tangan di satu baris */
+  margin-top: 5mm; /* beri jarak tanda tangan */
+}
+
+.ttd-box {
+  width: 30%;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.photo-preview {
+  max-width: 80px;
+  max-height: 80px;
+  margin: 5px auto 0 auto;
+}
+
+/* Sembunyikan tombol pilih file & atur posisi saat cetak */
+@media print {
+  input[type="file"],
+  .print-btn {
+    display: none !important;
+  }
+
+  .photo-preview {
+    display: block;
+    margin: 5px auto 0 auto;  /* Tengah di bawah teks */
+    max-height: 60px;
+  }
+
+  .ttd {
+    justify-content: space-between;
+  }
+
+  .ttd-box {
+    width: 30%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+}
+
+.karangpucung-date {
+  text-align: right;
+  margin-top: 1px;
+}
+
+.print-btn {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.print-btn button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.print-btn button:hover {
+  background-color: #45a049;
+}
+@media print {
+  /* Sembunyikan tombol cetak dan elemen pilih file */
+  .print-btn,
+  input[type="file"] {
+    display: none;
+  }
+}
+
+.print-btn {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.print-btn button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.print-btn button:hover {
+  background-color: #45a049;
+}
+.short-input {
+  width: 120px; /* Lebar input lebih kecil untuk rapi */
+  margin-right: 10px; /* Memberi jarak antara input */
+}
+
+.section p {
+  line-height: 1.6;
+}
+@media print {
+  .photo-preview {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 0;
+    max-height: 60px; /* lebih kecil agar sejajar */
+  }
+
+  input[type="file"] {
+    display: none; /* sembunyikan tombol pilih file */
+  }
+
+  .ttd div {
+    margin-bottom: 20px;
+  }
+}
+  .header, .title, .section, .ttd {
+    page-break-inside: avoid;
+  }
+}
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <img src="https://cdn-2.tstatic.net/tribunnewswiki/foto/bank/images/Logo-badan-usaha-milik-negara-BUMN.jpg" alt="Logo BUMN">
+    <img src="https://keretaapikita.com/wp-content/uploads/2020/09/Logo-Baru-PT-KAI.jpg" alt="Logo KAI">
+  </div>
+
+  <div class="title">
+    <h2>BERITA ACARA PEMERIKSAAN BERSAMA</h2>
+    <p><strong>Nomor : <input type="text" value="02/KS-IH/BA-STA/ix/2024"></strong></p>
+  </div>
+
+<div class="section">
+  <p>
+    Hari ini : <input type="text" placeholder="Senin" class="short-input"> 
+    Tanggal  : <input type="date" class="short-input"><br>
+    Telah dilakukan pemeriksaan bersama unit OP, JJ, STL dengan tujuan menunjang keselamatan, kelancaran dan ketertiban perjalanan kereta api.
+  </p>
+</div>
+
+
+  <div class="section">
+    <p>1. Team pemeriksa</p>
+    <table class="team-table">
+      <tr>
+        <td>a. Unit JJ</td>
+        <td>:</td>
+        <td><input type="text"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>:</td>
+        <td><input type="text"></td>
+      </tr>
+      <tr>
+        <td>b. Sintel</td>
+        <td>:</td>
+        <td><input type="text"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>:</td>
+        <td><input type="text"></td>
+      </tr>
+      <tr>
+        <td>c. Operasi</td>
+        <td>:</td>
+        <td><input type="text"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>:</td>
+        <td><input type="text"></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <table class="info-table">
+      <tr>
+        <td>2. Pemeriksaan</td>
+        <td>:</td>
+        <td><input type="text" value="STASIUN KARANGPUCUNG"></td>
+      </tr>
+      <tr>
+        <td>3. Hal yang diperiksa</td>
+        <td>:</td>
+        <td><input type="text" value="EMPLASEMEN, STASIUN"></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="section">
+    <p>4. Kesimpulan dari hasil pemeriksaan bersama, bahwa emplasemen, wesel, dan jalur di stasiun Indihiang masih dinyatakan dalam batas toleransi dan aman untuk dilalui KA. Adapun temuan akan segera di tindak lanjuti. Demikian terima kasih</p>
+  </div>
+
+<div class="section">
+  <p style="text-align:center;"><strong>MENGETAHUI</strong></p>
+  
+</div>
+
+<div class="karangpucung-date">
+  <div><strong>Karangpucung, <input type="date"></strong></div><br>
+</div>
+
+
+<div class="ttd">
+  <div class="ttd-box">
+    <strong>Karest Sintel 2.10 BJr</strong><br>
+    <strong>Kaur Sintel 2.10 BJr</strong><br>
+    <img id="photo1" class="photo-preview" alt="Preview Foto"><br>
+    <input type="file" accept="image/*" onchange="previewPhoto(this, 'photo1')">
+  </div>
+  <div class="ttd-box">
+    <strong>Karest J.R 2.13  Bjr</strong><br>
+    <span ><strong>Kaur J.R 2.13 Bjr</strong></span><br>
+    <img id="photo2" class="photo-preview" alt="Preview Foto"><br>
+    <input type="file" accept="image/*" onchange="previewPhoto(this, 'photo2')">
+  </div>
+  <div class="ttd-box">
+    <strong>Kepala Stasiun Karangpucung</strong><br>
+        <span ><strong>KS Knp</strong></span><br>
+    <img id="photo3" class="photo-preview" alt="Preview Foto"><br>
+    <input type="file" accept="image/*" onchange="previewPhoto(this, 'photo3')">
+  </div>
+</div>
+
+
+
+<div class="print-btn">
+  <button onclick="window.print()">Cetak Halaman</button>
+</div>
+
+
+  <script>
+    function previewPhoto(input, imgId) {
+  const file = input.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      document.getElementById(imgId).src = e.target.result;
+    }
+    reader.readAsDataURL(file);
+  }
+}
+
+    
+  </script>
+
+</body>
+</html>

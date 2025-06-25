@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Rekap Temuan Stasiun Karangpucung</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+    }
+    th, td {
+      border: 1px solid #000;
+      text-align: center;
+      padding: 5px;
+      vertical-align: middle;
+    }
+th {
+  font-weight: bold;
+  background-color: #f8aa02; /* biru korporat */
+  color: rgb(2, 0, 0);
+}
+
+    caption {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    select.status-dropdown {
+      padding: 2px;
+      font-size: 12px;
+      border: none;
+      font-weight: bold;
+    }
+    .closed {
+      background-color: #4CAF50;
+      color: white;
+    }
+    .progress {
+      background-color: #FFC107;
+      color: black;
+    }
+    .open {
+      background-color: #F44336;
+      color: white;
+    }
+    .preview-img {
+      margin-top: 5px;
+      max-width: 100px;
+      max-height: 100px;
+      display: block;
+    }
+    input[type="text"], textarea {
+      width: 100%;
+      font-size: 12px;
+      padding: 4px;
+      box-sizing: border-box;
+    }
+    /* Style tombol print */
+    #printPdfBtn {
+      margin-top: 15px;
+      padding: 8px 16px;
+      font-size: 14px;
+      background-color: #0047AB; /* biru korporat */
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    #printPdfBtn:hover {
+      background-color: #003a8c; /* sedikit lebih gelap saat hover */
+    }
+    /* Warna biru korporat di bawah tombol */
+    #blueBar {
+      margin-top: 10px;
+      height: 40px;
+      background-color: #0047AB;
+    }
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
+
+  </style>
+  <script>
+    function updateStatusClass(select) {
+      select.className = 'status-dropdown';
+      if (select.value === 'Closed') {
+        select.classList.add('closed');
+      } else if (select.value === 'Progress') {
+        select.classList.add('progress');
+      } else if (select.value === 'Open') {
+        select.classList.add('open');
+      }
+    }
+
+    function previewImage(input) {
+      const previewContainer = input.nextElementSibling;
+      if (input.files && input.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          previewContainer.src = e.target.result;
+        };
+        reader.readAsDataURL(input.files[0]);
+      } else {
+        previewContainer.src = "";
+      }
+    }
+
+    window.onload = function () {
+      const selects = document.querySelectorAll('.status-dropdown');
+      selects.forEach(updateStatusClass);
+    };
+
+    // Fungsi untuk print as PDF sederhana (print halaman)
+    function printAsPDF() {
+      window.print();
+    }
+  </script>
+</head>
+<body>
+
+<table>
+  <caption>
+    REKAP TEMUAN HASIL JI WILAYAH 2C TASIKMALAYA<br>
+    STASIUN KARANGPUCUNG
+  </caption>
+  <thead>
+    <tr>
+      <th>NO</th>
+      <th>NO JI</th>
+      <th>HASIL TEMUAN</th>
+      <th>DOKUMENTASI</th>
+      <th>TINDAK LANJUT DAN TANGGAL TL</th>
+      <th>KETERANGAN / DOKUMENTASI</th>
+      <th>STATUS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <td>1</td>
+    <td><input type="text" placeholder="Masukkan No JI" class="no-print"></td>
+    <td><textarea rows="3" placeholder="Masukkan hasil temuan" class="no-print"></textarea></td>
+    <td>
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
+        <input type="file" accept="image/*" onchange="previewImage(this)" class="no-print">
+        <img class="preview-img" alt="Preview">
+      </div>
+    </td>
+    <td><textarea rows="3" placeholder="Masukkan tindak lanjut dan tanggal TL" class="no-print"></textarea></td>
+    <td>
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
+        <input type="file" accept="image/*" onchange="previewImage(this)" class="no-print">
+        <img class="preview-img" alt="Preview">
+      </div>
+    </td>
+    <td>
+      <div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+        <select class="status-dropdown" onchange="updateStatusClass(this)">
+          <option value="" selected disabled>Pilih</option>
+          <option value="Closed">Closed</option>
+          <option value="Progress">Progress</option>
+          <option value="Open">Open</option>
+        </select>
+      </div>
+    </td>
+  </tr>
+
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+  <img src="https://i.postimg.cc/RVRnMWLp/bumn-2021.png" alt="Logo BUMN" style="height: 25px;">
+  <img src="https://i.postimg.cc/pTwKn3m0/KAI-LOGO.png" alt="Logo KAI" style="height: 20px;">
+</div>
+
+  </tbody>
+</table>
+
+
+<div style="margin-top: 10px; text-align: right;" class="no-print">
+  <button onclick="addRow()" id="addRowBtn" style="padding: 6px 10px; font-size: 12px; background-color: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer; margin-right: 5px;">+</button>
+  <button onclick="removeRow()" id="removeRowBtn" style="padding: 6px 10px; font-size: 12px; background-color: #dc3545; color: white; border: none; border-radius: 4px; cursor: pointer;">-</button>
+</div>
+
+
+
+<!-- Tombol Print as PDF -->
+<div style="text-align: center; margin-top: 15px;">
+  <button id="printPdfBtn" class="no-print" onclick="printAsPDF()">Print</button>
+</div>
+<!-- Bar warna biru korporat di bawah tombol -->
+<div style="text-align: center; margin-top: 10px;">
+  <img src="https://i.postimg.cc/gc3zW1Hg/list-kai.png" alt="Gambar Korporat" style="width: 100%; max-height: 15px; object-fit: cover;">
+</div>
+
+
+
+<script>
+  function addRow() {
+    const tbody = document.querySelector("table tbody");
+    const firstRow = tbody.querySelector("tr"); // baris pertama
+    const newRow = firstRow.cloneNode(true); // clone semua isi
+
+
+
+    // Reset nilai input/textarea/select di row baru
+    newRow.querySelectorAll("input, textarea, select").forEach(el => {
+      if (el.type === "file") {
+        el.value = "";
+        const img = el.parentNode.querySelector("img.preview-img");
+        if (img) img.src = "";
+      } else if (el.tagName === "SELECT") {
+        el.selectedIndex = 0;
+        el.className = "status-dropdown";
+      } else {
+        el.value = "";
+      }
+    });
+
+    // Update nomor urut otomatis
+    const currentRowCount = tbody.querySelectorAll("tr").length;
+    newRow.cells[0].innerText = currentRowCount + 1;
+
+    tbody.appendChild(newRow);
+  }
+    function removeRow() {
+    const tbody = document.querySelector("table tbody");
+    const rows = tbody.querySelectorAll("tr");
+
+    if (rows.length > 1) {
+      tbody.removeChild(rows[rows.length - 1]);
+    } else {
+      alert("Tambahan heula barisna, baru bisa dihapus guys");
+    }
+  }
+</script>
+</body>
+</html>

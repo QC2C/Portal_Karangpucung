@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Daftar Hadir</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 40px;
+    background-color: #f8f9fa;
+    color: #333;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .logo {
+    float: left;
+    width: 80px;
+  }
+
+  .info {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    width: 100%;
+    border-spacing: 0 10px;
+  }
+
+  .info td {
+    padding: 6px 10px;
+    text-align: left;
+    font-weight: bold;
+  }
+
+  .info .label {
+    width: 180px;
+    vertical-align: top;
+    font-weight: bold;
+    color: #005baa;
+  }
+
+  .info .input-wrapper {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .info select,
+  .info input[type="date"],
+  .info input[type="time"] {
+    width: 140px;
+    padding: 6px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-weight: bold;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  }
+
+  table, th, td {
+    border: 2px solid #005baa;
+  }
+
+  th {
+    background-color: #005baa;
+    color: white;
+    padding: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  td {
+    padding: 8px;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    border: none;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  input[type="file"] {
+    display: block;
+    margin: auto;
+  }
+
+  .ttd-preview {
+    max-height: 60px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+
+  .btn-container {
+    margin-bottom: 10px;
+    text-align: right;
+  }
+
+  .btn-container button {
+    font-size: 16px;
+    padding: 6px 14px;
+    margin-left: 5px;
+    background-color: #005baa;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .btn-container button:hover {
+    background-color: #004080;
+  }
+
+  .no-print {
+    display: block;
+  }
+
+  .print-btn {
+    background-color: #ff7b00;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .print-btn:hover {
+    background-color: #e46c00;
+  }
+
+  @media print {
+    .no-print, .btn-container button, .print-btn {
+      display: none !important;
+    }
+  }
+
+  .highlight {
+    background-color: #005baa;
+    color: white;
+    font-weight: bold;
+  }
+</style>
+
+
+</head>
+<body>
+
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Danantara_Indonesia.svg/1280px-Danantara_Indonesia.svg.png" alt="Logo BUMN" style="height: 40px;">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Logo_PT_Kereta_Api_Indonesia_%28Persero%29_2020.svg/1280px-Logo_PT_Kereta_Api_Indonesia_%28Persero%29_2020.svg.png" alt="Logo KAI" style="height: 30px;">
+</div>
+  <div class="header">
+    <h2>DAFTAR HADIR</h2>
+  </div>
+
+  <table class="info">
+ <tr class="highlight">
+  <td class="label">NAMA KEGIATAN</td>
+  <td> Safety Induction</td>
+</tr>
+
+    <tr>
+      <td class="label">Hari, Tanggal</td>
+      <td>
+        <div class="input-wrapper">
+          <select>
+            <option>Senin</option>
+            <option>Selasa</option>
+            <option>Rabu</option>
+            <option>Kamis</option>
+            <option>Jumat</option>
+            <option>Sabtu</option>
+            <option>Minggu</option>
+          </select>
+          <input type="date" />
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td class="label">Waktu</td>
+      <td>
+<input type="time" id="currentTime">
+      </td>
+    </tr>
+    <tr>
+      <td class="label">Tempat</td>
+      <td><strong>STASIUN BOJONG</strong></td>
+    </tr>
+  </table>
+
+  <div class="btn-container no-print">
+    <button id="addRowBtn" type="button">+</button>
+    <button id="removeRowBtn" type="button">-</button>
+  </div>
+
+  <table id="personnelTable">
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Nama</th>
+        <th>Nipp</th>
+        <th>Jabatan</th>
+        <th>Kedudukan</th>
+        <th>Foto wajah sbg ttd</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td><input type="text" name="nama[]"></td>
+        <td><input type="text" name="nipp[]"></td>
+        <td><input type="text" name="jabatan[]"></td>
+        <td><input type="text" name="kedudukan[]"></td>
+        <td class="ttd-cell">
+          <input type="file" accept="image/*" onchange="previewImage(event, 'preview1')" class="no-print" />
+          <img id="preview1" class="ttd-preview" />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+<div class="no-print" style="margin-top: 20px; text-align: center;">
+  <button class="print-btn" onclick="window.print()">🖨️ Simpan PDF</button>
+</div>
+
+
+  <script>
+    function previewImage(event, previewId) {
+      const reader = new FileReader();
+      reader.onload = function () {
+        const output = document.getElementById(previewId);
+        output.src = reader.result;
+      };
+      if(event.target.files[0]) {
+        reader.readAsDataURL(event.target.files[0]);
+      }
+    }
+
+    const addRowBtn = document.getElementById('addRowBtn');
+    const removeRowBtn = document.getElementById('removeRowBtn');
+    const tableBody = document.querySelector('#personnelTable tbody');
+
+    addRowBtn.addEventListener('click', () => {
+      const rowCount = tableBody.rows.length;
+      const newRowNumber = rowCount + 1;
+      const newRow = document.createElement('tr');
+
+      newRow.innerHTML = `
+        <td>${newRowNumber}</td>
+        <td><input type="text" name="nama[]"></td>
+        <td><input type="text" name="nipp[]"></td>
+        <td><input type="text" name="jabatan[]"></td>
+        <td><input type="text" name="kedudukan[]"></td>
+        <td class="ttd-cell">
+          <input type="file" accept="image/*" onchange="previewImage(event, 'preview${newRowNumber}')" class="no-print" />
+          <img id="preview${newRowNumber}" class="ttd-preview" />
+        </td>
+      `;
+
+      tableBody.appendChild(newRow);
+    });
+
+    removeRowBtn.addEventListener('click', () => {
+      const rowCount = tableBody.rows.length;
+      if (rowCount > 1) {
+        tableBody.deleteRow(rowCount - 1);
+      }
+    });
+    // Atur waktu sekarang ke input time saat halaman dimuat
+document.addEventListener('DOMContentLoaded', function () {
+  const timeInput = document.getElementById('currentTime');
+  const now = new Date();
+  const hours = now.getHours().toString().padStart(2, '0');
+  const minutes = now.getMinutes().toString().padStart(2, '0');
+  timeInput.value = `${hours}:${minutes}`;
+});
+
+  </script>
+</body>
+</html>

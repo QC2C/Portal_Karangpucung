@@ -1,0 +1,1149 @@
+<!-- Gabungan tiga form dalam satu HTML -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Laporan Pemeriksaan Operasi</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      border: 1px solid #000;
+      padding: 8px;
+      font-size: 14px;
+      vertical-align: middle;
+      text-align: left;
+    }
+    th {
+      background-color: #fac107;
+      text-align: center;
+    }
+    .subheader {
+      background-color: #f6da08;
+      font-weight: bold;
+      text-align: center;
+    }
+    .judul {
+      text-align: center;
+      font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    .info {
+      margin-bottom: 15px;
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .info label {
+      display: inline-block;
+      margin: 4px 10px 4px 0;
+    }
+    .info input[type="text"], .info input[type="date"] {
+      padding: 4px;
+      font-size: 14px;
+      width: auto;
+    }
+    .img-preview {
+      display: block;
+      margin: 10px auto 0;
+      max-height: 120px;
+    }
+    .print-only {
+      display: none;
+    }
+    @media print {
+      .no-print,
+      input[type="file"],
+      input[type="text"] {
+        display: none !important;
+      }
+      .print-only {
+        display: inline !important;
+        font-weight: bold;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="judul">LAPORAN PEMERIKSAAN BERSAMA <em>(JOINT INSPECTION)</em><br>Daerah Operasi 2 Bandung</div>
+
+<div class="info">
+  <label><strong>Tanggal:</strong>
+    <input type="date" value="today">
+  </label>
+  <label><strong>Tempat:</strong>
+    <input type="text" id="tempat" value="Sta Karangpucung">
+    <span class="print-only" id="print-tempat"></span>
+  </label>
+  <label><strong>No Dok:</strong>
+    <input type="text" id="nodok" value="JI-01/ks-Knp/VII/2025">
+    <span class="print-only" id="print-nodok"></span>
+  </label>
+</div>
+
+
+
+
+<table>
+  <tr>
+    <th>NO</th>
+    <th>OBYEK YANG DIPERIKSA</th>
+    <th>KONDISI</th>
+    <th>DOKUMENTASI</th>
+  </tr>
+  <tr>
+    <td colspan="4" class="subheader">OPERASI</td>
+  </tr>
+  
+  <tr>
+<tr>
+  <td>1</td>
+  <td>Tanda Kecakapan PPKA</td>
+  <td>
+    <strong>
+      <input placeholder="Ada/Berlaku" style="font-size: 12px; display: block; margin: 0 auto; text-align: center;">
+    </strong>
+  </td>
+      <td class="keterangan" onclick="this.querySelector('input[type=file]').click()">
+        <input type="file" accept="image/*" onchange="handleImageUpload(this)" class="image-input" />
+        <div class="image-preview"></div>
+      </td>
+</tr>
+
+  </tr>
+    <td>2</td>
+    <td>Kelengkapan Kerja (Semboyan 2A/2B, 3, 40, dan 4A (siang dan malam, Pluit PPKA atau Pap, Tongklem, Stop blok, Daftar jalur dan panjang jalur efektif; Slompret langsir ada dan berfungsi, Daftar KA lewat sesuai dengan peraturan perjalanan, Jam dinding ada dan berfungsi))</td>
+    <td><strong><input placeholder="Lengkap/Sesuai" style="font-size: 12px; display: block; margin: 0 auto; text-align: center;"></strong></td>
+      <td class="keterangan" onclick="this.querySelector('input[type=file]').click()">
+        <input type="file" accept="image/*" onchange="handleImageUpload(this)" class="image-input" />
+        <div class="image-preview"></div>
+      </td>   </tr>
+
+  <tr>
+    <td>3</td>
+    <td>Ruang Alat Pengamanan (Gambar Ikhtisar emplasemen, PDPS sesuai dengan alat pengamanan)</td>
+    <td><strong><input placeholder="Sesuai" style="font-size: 12px; display: block; margin: 0 auto; text-align: center;"></strong></td>
+      <td class="keterangan" onclick="this.querySelector('input[type=file]').click()">
+        <input type="file" accept="image/*" onchange="handleImageUpload(this)" class="image-input" />
+        <div class="image-preview"></div>
+      </td>
+       </tr>
+  <tr>
+    <td>4</td>
+    <td>Memahami prosedur memberangkatkan dan menerima KA serta SOP langsiran</td>
+     <td><strong><input placeholder="Faham" style="font-size: 12px; display: block; margin: 0 auto; text-align: center;"></strong></td>
+      <td class="keterangan" onclick="this.querySelector('input[type=file]').click()">
+        <input type="file" accept="image/*" onchange="handleImageUpload(this)" class="image-input" />
+        <div class="image-preview"></div>
+      </td>   </tr>
+  <tr>
+    <td>5</td>
+    <td>Uji petik PPKA</td>
+    <td><strong><input placeholder="Rutin" style="font-size: 12px; display: block; margin: 0 auto; text-align: center;"></strong></td>
+      <td class="keterangan" onclick="this.querySelector('input[type=file]').click()">
+        <input type="file" accept="image/*" onchange="handleImageUpload(this)" class="image-input" />
+        <div class="image-preview"></div>
+      </td>   </tr>
+
+  <tr>
+    <td>8</td>
+    <td>Briefing Sebelum pelaksanaan pemeriksaan</td>
+    <td><strong><input placeholder="Dilaksanakan" style="font-size: 12px; display: block; margin: 0 auto; text-align: center;"></strong></td>
+      <td class="keterangan" onclick="this.querySelector('input[type=file]').click()">
+        <input type="file" accept="image/*" onchange="handleImageUpload(this)" class="image-input" />
+        <div class="image-preview"></div>
+      </td>   </tr>
+</table> <br>
+
+<!-- Tambahkan ini di bagian bawah halaman tengah -->
+
+
+<script>
+  function previewImage(input) {
+    const file = input.files[0];
+    const img = input.nextElementSibling;
+    if (file && file.type.startsWith('image/')) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        img.src = e.target.result;
+        img.style.display = 'block';
+      };
+      reader.readAsDataURL(file);
+    } else {
+      img.src = '';
+      img.style.display = 'none';
+    }
+  }
+
+</script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pemeriksaan Sintelis</title>
+  <style>
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+  }
+
+ thead th {
+    background-color: #fac106;
+    padding: 8px;
+    border: 1px solid #0d0909;
+    vertical-align: middle;
+  }
+
+    th {
+      background-color: #d3cba8;
+      text-align: center;
+    }
+
+    td[colspan] {
+      text-align: left;
+    }
+
+    textarea {
+      width: 100%;
+      resize: vertical;
+      min-height: 60px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      padding: 5px;
+      font-family: 'Times New Roman', serif;
+    }
+
+    .image-input {
+      display: none;
+    }
+
+    .image-preview {
+      text-align: center;
+    }
+
+    .image-preview img {
+      max-width: 150px;
+      max-height: 150px;
+      cursor: pointer;
+      object-fit: contain;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      transition: transform 0.2s ease;
+    }
+
+    .image-preview img:hover {
+      transform: scale(1.05);
+    }
+
+
+
+ 
+    
+  </style>
+</head>
+<body>
+
+<table>
+  <thead>
+    <tr>
+      <th rowspan="2">No</th>
+      <th rowspan="2">SINTELIS</th>
+      <th colspan="5">Wesel</th>
+      <th rowspan="2">Dokumentasi</th>
+    </tr>
+    <tr>
+      <th>Wesel 11A</th>
+      <th>Wesel 11B</th>
+      <th>Wesel 21</th>
+      <th>Wesel 13A</th>
+      <th>Wesel 13B</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Baris 1–4 -->
+    <tr>
+      <td>1</td>
+      <td>Bukaan Lidah Wesel</td>
+      <td><textarea></textarea></td>
+      <td><textarea></textarea></td>
+      <td><textarea></textarea></td>
+      <td><textarea></textarea></td>
+      <td><textarea></textarea></td>
+      <td class="keterangan" onclick="this.querySelector('input[type=file]').click()">
+        <input type="file" accept="image/*" onchange="handleImageUpload(this)" class="image-input" />
+        <div class="image-preview"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Penguncian Ganjalan</td>
+      <td><textarea></textarea></td>
+      <td><textarea></textarea></td>
+      <td><textarea></textarea></td>
+      <td><textarea></textarea></td>
+      <td><textarea></textarea></td>
+      <td class="keterangan" onclick="this.querySelector('input[type=file]').click()">
+        <input type="file" accept="image/*" onchange="handleImageUpload(this)" class="image-input" />
+        <div class="image-preview"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Penguncian Wesel</td>
+      <td><textarea></textarea></td>
+      <td><textarea></textarea></td>
+      <td><textarea></textarea></td>
+      <td><textarea></textarea></td>
+      <td><textarea></textarea></td>
+      <td class="keterangan" onclick="this.querySelector('input[type=file]').click()">
+        <input type="file" accept="image/*" onchange="handleImageUpload(this)" class="image-input" />
+        <div class="image-preview"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Panjang Langkah</td>
+      <td><textarea></textarea></td>
+      <td><textarea></textarea></td>
+      <td><textarea></textarea></td>
+      <td><textarea></textarea></td>
+      <td><textarea></textarea></td>
+      <td class="keterangan" onclick="this.querySelector('input[type=file]').click()">
+        <input type="file" accept="image/*" onchange="handleImageUpload(this)" class="image-input" />
+        <div class="image-preview"></div>
+      </td>
+    </tr>
+
+    <!-- Baris 5–8 -->
+    <tr>
+      <td>5</td>
+      <td>PERALATAN TELEKOMUNIKASI & TELEMETRI<br>
+        (Pesawat telepon antar stasiun, Pesawat WS suara jelas dan terekam, Induktor genta/gentanik)
+      </td>
+      <td colspan="5"><textarea></textarea></td>
+      <td class="keterangan" onclick="this.querySelector('input[type=file]').click()">
+        <input type="file" accept="image/*" onchange="handleImageUpload(this)" class="image-input" />
+        <div class="image-preview"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>LOGGER/REKAMAN<br>(Data logger persinyalan berfungsi, Voice logger berfungsi)</td>
+      <td colspan="5"><textarea></textarea></td>
+      <td class="keterangan" onclick="this.querySelector('input[type=file]').click()">
+        <input type="file" accept="image/*" onchange="handleImageUpload(this)" class="image-input" />
+        <div class="image-preview"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>WESEL<br>(Panjang claw bersandar pada kusen kanan dan kiri 40–60 mm, Perintang / Pelalau, Penguncian internal lidah rapat terkunci, Kondisi baut, mur, semat belah lengkap dan tidak ada kelonggaran)</td>
+      <td colspan="5"><textarea></textarea></td>
+      <td class="keterangan" onclick="this.querySelector('input[type=file]').click()">
+        <input type="file" accept="image/*" onchange="handleImageUpload(this)" class="image-input" />
+        <div class="image-preview"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Kelengkapan Semboyan di Emplasemen</td>
+      <td colspan="5"><textarea></textarea></td>
+      <td class="keterangan" onclick="this.querySelector('input[type=file]').click()">
+        <input type="file" accept="image/*" onchange="handleImageUpload(this)" class="image-input" />
+        <div class="image-preview"></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<script>
+  function handleImageUpload(input) {
+    const file = input.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const imgContainer = input.nextElementSibling;
+        imgContainer.innerHTML = `<img src="${e.target.result}" alt="Preview Image" style="max-width: 150px; max-height: 150px; border: 1px solid #ccc; border-radius: 4px;" />`;
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+
+  function openImageModal(src) {
+    let existingModal = document.getElementById('imageModal');
+    if (existingModal) existingModal.remove();
+
+    const modal = document.createElement('div');
+    modal.id = 'imageModal';
+    modal.style.position = 'fixed';
+    modal.style.top = 0;
+    modal.style.left = 0;
+    modal.style.width = '100vw';
+    modal.style.height = '100vh';
+    modal.style.backgroundColor = 'rgba(0,0,0,0.8)';
+    modal.style.display = 'flex';
+    modal.style.justifyContent = 'center';
+    modal.style.alignItems = 'center';
+    modal.style.zIndex = 9999;
+    modal.innerHTML = `<img src="${src}" style="max-width:90%; max-height:90%;" onclick="this.parentElement.remove()" />`;
+
+    document.body.appendChild(modal);
+  }
+</script>
+
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Laporan Pemeriksaan Operasi</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      border: 1px solid #000;
+      padding: 8px;
+      vertical-align: top;
+      font-size: 14px;
+    }
+    th {
+      background-color: #cfe2f3;
+      text-align: center;
+    }
+    .subheader {
+      background-color: #f4f4f4;
+      font-weight: bold;
+      text-align: center;
+    }
+    .judul {
+      text-align: center;
+      font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    .info {
+      margin-bottom: 15px;
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .info label {
+      display: inline-block;
+      margin: 4px 10px 4px 0;
+    }
+    .info input[type="text"], .info input[type="date"] {
+      padding: 4px;
+      font-size: 14px;
+      width: auto;
+    }
+
+  .img-preview {
+    display: block;
+    margin: 10px auto 0;
+    max-height: 120px;
+  }
+
+
+  </style>
+</head>
+<body>
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Pemeriksaan Jalan rel</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: center;
+    }
+
+    th, td {
+      border: 1px solid #c92a2a;
+      padding: 10px;
+      vertical-align: middle;
+    }
+
+    th {
+      background-color: #fbda04;
+    }
+
+    input {
+      width: 95%;
+      padding: 4px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+    }
+
+    td input {
+      text-align: center;
+    }
+
+    .judul {
+      background-color: #cfcfcf;
+      font-weight: bold;
+    }
+
+    .subjudul {
+      text-align: left;
+      font-weight: bold;
+      background-color: #fbbe04;
+    }
+
+    .left-align {
+      text-align: left;
+      padding-left: 6px;
+    }
+
+    .foto-preview {
+      display: none;
+      width: 100px;
+      height: auto;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    td input[type="file"] {
+      margin-bottom: 5px;
+    }
+
+    td label span {
+      display: inline-block;
+      padding: 4px 8px;
+      background-color: #3498db;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 4px;
+    }
+
+    td label input[type="file"] {
+      display: none;
+    }
+
+.subjudul td {
+  text-align: center;
+}
+
+  </style>
+</head>
+<body>
+  </tbody>
+</table>
+<table><br>
+    <!-- Bagian JALUR -->
+  <tr class="subjudul">
+    <td colspan="8">1. JALUR</td>
+  </tr>
+  <tr>
+    <th rowspan="2">No</th>
+    <th rowspan="2">Pemeriksaan</th>
+    <th colspan="5">JALUR</th>
+<th rowspan="2">Dokumentasi</th>
+  </tr>
+  <tr>
+    <th>I</th>
+    <th>II</th>
+    <th>III</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<tr>
+  <td>1a</td>
+  <td class="left-align">Balas (rata dengan permukaan atas bantalan dan ada bahunya)</td>
+  <td><input placeholder="Rata"></td>
+  <td><input placeholder="Rata"></td>
+  <td><input placeholder="Rata"></td>
+  <td></td>
+  <td></td>
+      <td class="keterangan" onclick="this.querySelector('input[type=file]').click()">
+        <input type="file" accept="image/*" onchange="handleImageUpload(this)" class="image-input" />
+        <div class="image-preview"></div>
+      </td>
+</tr>
+
+<tr>
+  <td>1b</td>
+  <td class="left-align">Terdapat kecrotan pada wesel</td>
+    <td><input placeholder="TIdak"></td>
+    <td><input placeholder="TIdak"></td>
+    <td><input placeholder="TIdak"></td>
+    <td></td>
+    <td></td>
+      <td class="keterangan" onclick="this.querySelector('input[type=file]').click()">
+        <input type="file" accept="image/*" onchange="handleImageUpload(this)" class="image-input" />
+        <div class="image-preview"></div>
+      </td>
+</tr>
+
+<tr>
+  <td>1c</td>
+  <td class="left-align">Baut sambung sesuai jumlah lubang dan kencang</td>
+    <td><input placeholder="Ya"></td>
+    <td><input placeholder="Ya"></td>
+    <td><input placeholder="Ya"></td>
+    <td></td>
+    <td></td>
+      <td class="keterangan" onclick="this.querySelector('input[type=file]').click()">
+        <input type="file" accept="image/*" onchange="handleImageUpload(this)" class="image-input" />
+        <div class="image-preview"></div>
+      </td>
+</tr>
+<tr>
+  <td>1d</td>
+  <td class="left-align">Terdapat bantalan rusak</td>
+    <td><input placeholder="Tidak"></td>
+    <td><input placeholder="Tidak"></td>
+    <td><input placeholder="Tidak"></td>
+    <td></td>
+    <td></td>
+      <td class="keterangan" onclick="this.querySelector('input[type=file]').click()">
+        <input type="file" accept="image/*" onchange="handleImageUpload(this)" class="image-input" />
+        <div class="image-preview"></div>
+      </td>
+</tr>
+<tr>
+  <td>1e</td>
+  <td class="left-align">Mengukur Kelandaian Emplasemen</td>
+    <td><input placeholder="0,16‰"></td>
+    <td><input placeholder="1,17‰"></td>
+    <td><input placeholder="0,77‰"></td>
+    <td></td>
+    <td></td>
+      <td class="keterangan" onclick="this.querySelector('input[type=file]').click()">
+        <input type="file" accept="image/*" onchange="handleImageUpload(this)" class="image-input" />
+        <div class="image-preview"></div>
+      </td>
+</tr>
+
+
+  <!-- Bagian WESEL -->
+<tr class="subjudul">
+  <td colspan="2" class="left-align">2. Wesel</td> 
+
+  <td align="center">11A</td>
+  <td align="center">11B</td>
+  <td align="center">21</td>
+  <td align="center">13A</td>
+  <td align="center">13B</td>
+  <td align="center"></td>
+</tr>
+
+  <tr>
+    <td>2a</td>
+   <td class="left-align">Balas (rata dengan permukaan atas bantalan dan ada bahunya)</td>
+  <td><input placeholder="Ya"></td>
+  <td><input placeholder="Ya"></td>
+  <td><input placeholder="Ya"></td>
+  <td><input placeholder="Ya"></td>
+  <td><input placeholder="Ya"></td>
+      <td class="keterangan" onclick="this.querySelector('input[type=file]').click()">
+        <input type="file" accept="image/*" onchange="handleImageUpload(this)" class="image-input" />
+        <div class="image-preview"></div>
+      </td>
+</tr>
+  <tr>
+    <td>2b</td>
+   <td class="left-align">Terdapat kecerotan pada wesel</td>
+  <td><input placeholder="Tidak"></td>
+  <td><input placeholder="Tidak"></td>
+  <td><input placeholder="Tidak"></td>
+  <td><input placeholder="Tidak"></td>
+  <td><input placeholder="Tidak"></td>
+      <td class="keterangan" onclick="this.querySelector('input[type=file]').click()">
+        <input type="file" accept="image/*" onchange="handleImageUpload(this)" class="image-input" />
+        <div class="image-preview"></div>
+      </td>
+</tr>
+  <tr>
+    <td>2c</td>
+   <td class="left-align">Lidah rapat menggantung</td>
+  <td><input placeholder="Tidak"></td>
+  <td><input placeholder="Tidak"></td>
+  <td><input placeholder="Tidak"></td>
+  <td><input placeholder="Tidak"></td>
+  <td><input placeholder="Tidak"></td>
+      <td class="keterangan" onclick="this.querySelector('input[type=file]').click()">
+        <input type="file" accept="image/*" onchange="handleImageUpload(this)" class="image-input" />
+        <div class="image-preview"></div>
+      </td>
+</tr>
+  <tr>
+    <td>2d</td>
+    <td class="left-align">Bantalan pecah/lapuk/kropos berjajar lebih dari 2 batang</td>
+  <td><input placeholder="Tidak"></td>
+  <td><input placeholder="Tidak"></td>
+  <td><input placeholder="Tidak"></td>
+  <td><input placeholder="Tidak"></td>
+  <td><input placeholder="Tidak"></td>
+      <td class="keterangan" onclick="this.querySelector('input[type=file]').click()">
+        <input type="file" accept="image/*" onchange="handleImageUpload(this)" class="image-input" />
+        <div class="image-preview"></div>
+      </td>
+</tr>
+    <td>2e</td>
+    <td class="left-align">Bantalan di bawah pembalik wesel miring/pecah/lapuk/keropos/terdandang sepanjang bantalan</td>
+  <td><input placeholder="Tidak"></td>
+  <td><input placeholder="Tidak"></td>
+  <td><input placeholder="Tidak"></td>
+  <td><input placeholder="Tidak"></td>
+  <td><input placeholder="Tidak"></td>
+      <td class="keterangan" onclick="this.querySelector('input[type=file]').click()">
+        <input type="file" accept="image/*" onchange="handleImageUpload(this)" class="image-input" />
+        <div class="image-preview"></div>
+      </td>
+</tr>
+  </tr>
+    <td>2f</td>
+    <td class="left-align">Lidah wesel grepes 20 cm atau lebih</td>
+  <td><input placeholder="Tidak"></td>
+  <td><input placeholder="Tidak"></td>
+  <td><input placeholder="Tidak"></td>
+  <td><input placeholder="Tidak"></td>
+  <td><input placeholder="Tidak"></td>
+      <td class="keterangan" onclick="this.querySelector('input[type=file]').click()">
+        <input type="file" accept="image/*" onchange="handleImageUpload(this)" class="image-input" />
+        <div class="image-preview"></div>
+      </td>
+</tr>
+  </tr>
+    <td>2g</td>
+    <td class="left-align">Baut sambung sesuai jumlah lubang dan kencang</td>
+  <td><input placeholder="Ya"></td>
+  <td><input placeholder="Ya"></td>
+  <td><input placeholder="Ya"></td>
+  <td><input placeholder="Ya"></td>
+  <td><input placeholder="Ya"></td>
+      <td class="keterangan" onclick="this.querySelector('input[type=file]').click()">
+        <input type="file" accept="image/*" onchange="handleImageUpload(this)" class="image-input" />
+        <div class="image-preview"></div>
+      </td>
+</tr>
+  </tr>
+    <td>2h</td>
+    <td class="left-align">Baut rel paksa /tangen tidak ada yang hilang/lepas dan kendor</td>
+  <td><input placeholder="Tidak"></td>
+  <td><input placeholder="Tidak"></td>
+  <td><input placeholder="Tidak"></td>
+  <td><input placeholder="Tidak"></td>
+  <td><input placeholder="Tidak"></td>
+      <td class="keterangan" onclick="this.querySelector('input[type=file]').click()">
+        <input type="file" accept="image/*" onchange="handleImageUpload(this)" class="image-input" />
+        <div class="image-preview"></div>
+      </td>
+</tr>
+  </tr>
+    <td>2i</td>
+    <td class="left-align">Baut penahan rel lantak tidak ada yang hilang/lepas/kendor</td>
+  <td><input placeholder="Ya"></td>
+  <td><input placeholder="Ya"></td>
+  <td><input placeholder="Ya"></td>
+  <td><input placeholder="Ya"></td>
+  <td><input placeholder="Ya"></td>
+      <td class="keterangan" onclick="this.querySelector('input[type=file]').click()">
+        <input type="file" accept="image/*" onchange="handleImageUpload(this)" class="image-input" />
+        <div class="image-preview"></div>
+      </td>
+</tr>
+  </tr>
+    <td>2j</td>
+    <td class="left-align">Jarum wesel retak kedalaman lebih dari 25 cm</td>
+  <td><input placeholder="Tidak"></td>
+  <td><input placeholder="Tidak"></td>
+  <td><input placeholder="Tidak"></td>
+  <td><input placeholder="Tidak"></td>
+  <td><input placeholder="Tidak"></td>
+      <td class="keterangan" onclick="this.querySelector('input[type=file]').click()">
+        <input type="file" accept="image/*" onchange="handleImageUpload(this)" class="image-input" />
+        <div class="image-preview"></div>
+      </td>
+</tr>
+  </tr>
+    <td>2k</td>
+    <td class="left-align">Jarum wesel aus/depek vertikal lebih dari 10 mm/
+  <td><input placeholder="Tidak"></td>
+  <td><input placeholder="Tidak"></td>
+  <td><input placeholder="Tidak"></td>
+  <td><input placeholder="Tidak"></td>
+  <td><input placeholder="Tidak"></td>
+      <td class="keterangan" onclick="this.querySelector('input[type=file]').click()">
+        <input type="file" accept="image/*" onchange="handleImageUpload(this)" class="image-input" />
+        <div class="image-preview"></div>
+      </td>
+</tr>
+    <td>2l</td>
+    <td class="left-align">Vang rel aus vertical lebih dari 10 mm
+  <td><input placeholder="Tidak"></td>
+  <td><input placeholder="Tidak"></td>
+  <td><input placeholder="Tidak"></td>
+  <td><input placeholder="Tidak"></td>
+  <td><input placeholder="Tidak"></td>
+      <td class="keterangan" onclick="this.querySelector('input[type=file]').click()">
+        <input type="file" accept="image/*" onchange="handleImageUpload(this)" class="image-input" />
+        <div class="image-preview"></div>
+      </td>
+</tr>
+  </tr>
+    <td>2m</td>
+    <td class="left-align">Lebar jalur rel di muka lidah (sesuai D.145)
+  <td><input></td><td><input></td><td><input></td><td><input></td><td><input></td>
+      <td class="keterangan" onclick="this.querySelector('input[type=file]').click()">
+        <input type="file" accept="image/*" onchange="handleImageUpload(this)" class="image-input" />
+        <div class="image-preview"></div>
+      </td>
+</tr>
+  </tr>
+
+    <td>2n</td>
+    <td class="left-align">Lebar jalan rel pada bagian penerus (-2 / +5) (sesuai D.145)
+  <td><textarea rows="2" style="width: 95%;" placeholder="ka :    ki :"></textarea></td>
+  <td><textarea rows="2" style="width: 95%;" placeholder="ka :    ki :"></textarea></td>
+  <td><textarea rows="2" style="width: 95%;" placeholder="ka :    ki :"></textarea></td>
+  <td><textarea rows="2" style="width: 95%;" placeholder="ka :    ki :"></textarea></td>
+  <td><textarea rows="2" style="width: 95%;" placeholder="ka :    ki :"></textarea></td>
+        <td class="keterangan" onclick="this.querySelector('input[type=file]').click()">
+        <input type="file" accept="image/*" onchange="handleImageUpload(this)" class="image-input" />
+        <div class="image-preview"></div>
+      </td>
+</tr>
+  </tr>
+    <td>2o</td>
+    <td class="left-align">Jarak point of protection 1033 mm(+3/-2mm)
+  <td><textarea rows="2" style="width: 95%;" placeholder="ka :    ki :"></textarea></td>
+  <td><textarea rows="2" style="width: 95%;" placeholder="ka :    ki :"></textarea></td>
+  <td><textarea rows="2" style="width: 95%;" placeholder="ka :    ki :"></textarea></td>
+  <td><textarea rows="2" style="width: 95%;" placeholder="ka :    ki :"></textarea></td>
+  <td><textarea rows="2" style="width: 95%;" placeholder="ka :    ki :"></textarea></td>
+      <td class="keterangan" onclick="this.querySelector('input[type=file]').click()">
+        <input type="file" accept="image/*" onchange="handleImageUpload(this)" class="image-input" />
+        <div class="image-preview"></div>
+      </td>
+</tr>
+  </tr>
+    <td>2p</td>
+    <td class="left-align">Lebar alur rel paksa 34 mm (+1/-1)
+  <td><textarea rows="2" style="width: 95%;" placeholder="ka :    ki :"></textarea></td>
+  <td><textarea rows="2" style="width: 95%;" placeholder="ka :    ki :"></textarea></td>
+  <td><textarea rows="2" style="width: 95%;" placeholder="ka :    ki :"></textarea></td>
+  <td><textarea rows="2" style="width: 95%;" placeholder="ka :    ki :"></textarea></td>
+  <td><textarea rows="2" style="width: 95%;" placeholder="ka :    ki :"></textarea></td>
+      <td class="keterangan" onclick="this.querySelector('input[type=file]').click()">
+        <input type="file" accept="image/*" onchange="handleImageUpload(this)" class="image-input" />
+        <div class="image-preview"></div>
+      </td>
+</tr>
+  </tr>
+    <td>2q</td>
+    <td class="left-align">Nilai skillu /3m pada lengkung belakang wesel
+  <td><input></td><td><input></td><td><input></td><td><input></td><td><input></td>
+      <td class="keterangan" onclick="this.querySelector('input[type=file]').click()">
+        <input type="file" accept="image/*" onchange="handleImageUpload(this)" class="image-input" />
+        <div class="image-preview"></div>
+      </td>
+</tr>
+  </tr>
+    <td>2r</td>
+    <td class="left-align">Sambungan pangkal lidah wesel pada sisi dalam dan atas harus rata
+  <td><input placeholder="Ya"></td>
+  <td><input placeholder="Ya"></td>
+  <td><input placeholder="Ya"></td>
+  <td><input placeholder="Ya"></td>
+  <td><input placeholder="Ya"></td>
+      <td class="keterangan" onclick="this.querySelector('input[type=file]').click()">
+        <input type="file" accept="image/*" onchange="handleImageUpload(this)" class="image-input" />
+        <div class="image-preview"></div>
+      </td>
+</tr>
+
+</table>
+
+<script>
+  function previewImage(event, id) {
+    const fileInput = event.target;
+    const preview = document.getElementById(id);
+    const file = fileInput.files[0];
+    
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        preview.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+    function previewImage(input) {
+      const file = input.files[0];
+      const preview = input.closest("td").querySelector(".foto-preview");
+
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          preview.src = e.target.result;
+          preview.style.display = "block";
+        };
+        reader.readAsDataURL(file);
+      } else {
+        preview.style.display = "none";
+      }
+    }
+
+</script>
+
+</body>
+</html>
+
+
+
+
+<!-- FORM PEMERIKSAAN BANGUNAN DINAS -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Pemeriksaan Bangunan Dinas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      vertical-align: top;
+    }
+    th {
+      background-color: #cfc6a3;
+      text-align: center;
+      font-weight: bold;
+    }
+    .no-border {
+      border: none;
+    }
+    .signature {
+      margin-top: 40px;
+      text-align: center;
+    }
+    .bold {
+      font-weight: bold;
+    }
+      .input-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .input-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .input-label {
+    width: 80px; /* Bisa disesuaikan sesuai panjang label */
+    font-weight: bold;
+  }
+
+  .input-field {
+    flex: 1;
+  }
+/* coose file */
+  .signature-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .signature-block {
+    text-align: center;
+    width: 30%;
+  }
+
+  .signature-block img {
+    margin: 5px auto 0 auto;
+    display: block;
+    width: 100px;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+
+  .no-print {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+  }
+    .no-print button {
+    background-color: #004080; /* warna biru tua korporat */
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 64, 128, 0.4);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .no-print button:hover {
+    background-color: #003060;
+    box-shadow: 0 6px 12px rgba(0, 48, 96, 0.6);
+  }
+
+@media print {
+  .no-print,
+  input[type="file"],
+  input[type="text"] {
+    display: none !important;
+  }
+  .signature-block img {
+    border: none !important;
+  }
+}
+
+.print-only {
+  display: none;
+}
+@media print {
+  input[type="text"] {
+    display: none !important;
+  }
+  .print-only {
+    display: inline !important;
+    font-weight: bold;
+  }
+}
+
+
+
+  </style>
+</head>
+<body>
+
+<table>
+  <tr>
+    <th colspan="3">BANGUNAN DINAS</th>
+  </tr>
+
+  <tr>
+    <td width="5%">1</td>
+    <td width="55%">Lampu Penerangan mengarah ke Wesel</td>
+    <td><input type="text" placeholder="Ada/tiada"></td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Kondisi Bangunan Kerja PPKA</td>
+    <td><input type="text" placeholder="Ada/tiada"></td>
+  </tr>
+</table>
+
+<p class="bold underline">Catatan</p>
+<p>Temuan Saat Ini :</p>
+<ul class="input-list">
+  <li>
+    <span class="input-label">1. STL :</span>
+    <input class="input-field" type="text" placeholder="Isi temuan STL...">
+  </li>
+  <li>
+    <span class="input-label">2. JJ :</span>
+    <input class="input-field" type="text" placeholder="Isi temuan JJ...">
+  </li>
+  <li>
+    <span class="input-label">3. OP :</span>
+    <input class="input-field" type="text" placeholder="Isi temuan OP...">
+  </li>
+</ul>
+
+
+<div class="signature-container">
+<div class="signature-block">
+  <strong>a.n KAREST SINTEL 2.10 Bjr</strong><br>
+    <strong>Kaur Sintel</strong><br>
+  <input type="file" accept="image/*" class="file-input" onchange="previewImage(event, 'imgSintel')">
+  <img id="imgSintel" alt="Foto Sintel">
+</div>
+
+<div class="signature-block">
+    <strong>a.n Karest J.R 2.13 Bjr</strong><br>
+  <strong>KAUR J.R </strong><br>
+  <input type="file" accept="image/*" class="file-input" onchange="previewImage(event, 'imgJR')">
+  <img id="imgJR" alt="Foto JR">
+</div>
+
+<div class="signature-block">
+  <strong>Kepala Stasiun</strong><br>
+ <strong>Karangpucung</strong><br>
+  <input type="file" accept="image/*" class="file-input" onchange="previewImage(event, 'imgKarangpucung')">
+  <img id="imgKarangpucung" alt="Foto Karangpucung">
+</div>
+</div>
+
+<div class="no-print">
+  <button onclick="window.print()">🖨️ Print PDF</button>
+</div>
+      
+
+    </td>
+  </tr>
+</table>
+<script>
+  function previewImage(event, targetId) {
+    const image = document.getElementById(targetId);
+    image.src = URL.createObjectURL(event.target.files[0]);
+    image.style.display = 'block';
+  }
+    function previewImage(event, imgId) {
+    const input = event.target;
+    const reader = new FileReader();
+    reader.onload = function () {
+      const img = document.getElementById(imgId);
+      img.src = reader.result;
+    };
+    reader.readAsDataURL(input.files[0]);
+  }
+
+  function beforePrint() {
+    document.getElementById('print-tempat').innerText = document.getElementById('tempat').value;
+    document.getElementById('print-nodok').innerText = document.getElementById('nodok').value;
+  }
+
+  window.onbeforeprint = beforePrint;
+</script>
+
+</script>
+</body>
+</html>
