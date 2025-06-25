@@ -84,12 +84,31 @@
 </head>
 <body>
 
-<!-- Dummy form agar Netlify deteksi -->
-
 
 <div class="container">
   <h1>SAFETY INDUCTION</h1>
   <h2 style="text-align:center;">Stasiun Karangpucung <br>Daop 2 Bandung</h2>
+<form method="POST" action="https://script.google.com/macros/s/AKfycbwjkPQrrFmspZ57hSsuAeSq1uTQefgmnBjZVOacKVf-2IbQIwjK84oFd7_R99YxPJSh/exec" style="max-width: 500px; margin: auto; font-family: sans-serif;">
+  <label>Nama Lengkap:</label>
+  <input name="nama" type="text" placeholder="Contoh: Budi Santoso" required>
+
+  <label>NIPP:</label>
+  <input name="nipp" type="text" placeholder="Contoh: 123456" required>
+
+  <label>No HP:</label>
+  <input name="nohp" type="text" placeholder="Contoh: 081234567890" required>
+
+  <label>Instansi/Perusahaan:</label>
+  <input name="instansi" type="text" placeholder="Contoh: PT KAI" required>
+
+  <label>Tanggal:</label>
+  <input name="tanggal" type="date" required>
+
+  <label><input type="checkbox" name="setuju" required> Saya menyatakan telah mengisi data dengan benar</label>
+
+  <br><br>
+  <button type="submit" style="padding: 10px 20px; background: #0a539e; color: white; border: none; border-radius: 4px; cursor: pointer;">Kirim</button>
+</form>
 
   <div class="section">
     <h3>1. Tujuan Induksi</h3>
