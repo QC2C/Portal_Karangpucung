@@ -115,10 +115,7 @@
   </style>
 </head>
 <body>
-<!-- Tambahkan ini tepat setelah <body> -->
-<form id="absenForm" onsubmit="submitToSheets(event)">
 
-  
 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
   <img src="https://i.postimg.cc/RVRnMWLp/bumn-2021.png" alt="Logo BUMN" style="height: 40px;">
   <img src="https://i.postimg.cc/pTwKn3m0/KAI-LOGO.png" alt="Logo KAI" style="height: 30px;">
@@ -196,10 +193,7 @@
   <div class="no-print" style="margin-top: 20px; text-align: center;">
     <button onclick="window.print()">Print (PDF)</button>
   </div>
-  <div class="no-print" style="margin-top: 10px; text-align: center;">
-  <button type="submit">Kirim Data ke Google Sheets</button>
-</div>
-</form>
+
   <script>
     function previewImage(event, previewId) {
       const reader = new FileReader();
@@ -251,50 +245,6 @@ document.addEventListener('DOMContentLoaded', function () {
   timeInput.value = `${hours}:${minutes}`;
 });
 
-
-    <script>
-  function submitToSheets(e) {
-    e.preventDefault();
-    
-    const form = e.target;
-    const rows = document.querySelectorAll('#personnelTable tbody tr');
-    const tanggal = document.querySelector('input[type="date"]').value;
-    const jam = document.getElementById('currentTime').value;
-    const tempat = 'STASIUN KARANGPUCUNG';
-
-    for (let i = 0; i < rows.length; i++) {
-      const nama = rows[i].querySelector('input[name="nama[]"]').value;
-      const nipp = rows[i].querySelector('input[name="nipp[]"]').value;
-      const jabatan = rows[i].querySelector('input[name="jabatan[]"]').value;
-      const kedudukan = rows[i].querySelector('input[name="kedudukan[]"]').value;
-
-      const data = new FormData();
-      data.append("nama", nama);
-      data.append("nipp", nipp);
-      data.append("jabatan", jabatan);
-      data.append("kedudukan", kedudukan);
-      data.append("tanggal", tanggal);
-      data.append("jam", jam);
-      data.append("tempat", tempat);
-
-      
-      fetch("https://script.google.com/macros/s/AKfycbxlJS_rsiYRHUeMJzHEMKPGk6gLAZYYH1aoWwSmocL1rsibKLSP-OXm8ieXQTqEC2sA/exec", {
-        method: "POST",
-        body: data
-      }).then((res) => {
-        if (i === rows.length - 1) {
-          alert("Data berhasil dikirim ke Google Sheets!");
-        }
-      }).catch((err) => {
-        console.error("Gagal kirim:", err);
-        alert("Gagal mengirim data.");
-      });
-    }
-  }
-</script>
-
   </script>
-
-
 </body>
 </html>
