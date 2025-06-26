@@ -114,7 +114,9 @@
 
   </style>
 </head>
+
 <body>
+<form id="formHadir" name="formHadir">
 
 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
   <img src="https://i.postimg.cc/RVRnMWLp/bumn-2021.png" alt="Logo BUMN" style="height: 40px;">
@@ -190,60 +192,85 @@
     </tbody>
   </table>
 
-  <div class="no-print" style="margin-top: 20px; text-align: center;">
-    <button onclick="window.print()">Print (PDF)</button>
-  </div>
+<div class="no-print" style="margin-top: 20px; text-align: center;">
+  <button onclick="window.print()">Print (PDF)</button>
+  <button type="submit">Kirim ke Google Sheets</button>
+</div>
 
+</form> <!-- Penutup form -->
   <script>
-    function previewImage(event, previewId) {
-      const reader = new FileReader();
-      reader.onload = function () {
-        const output = document.getElementById(previewId);
-        output.src = reader.result;
-      };
-      if(event.target.files[0]) {
-        reader.readAsDataURL(event.target.files[0]);
-      }
+    // Preview gambar tetap
+  function previewImage(event, previewId) {
+    const reader = new FileReader();
+    reader.onload = function () {
+      const output = document.getElementById(previewId);
+      output.src = reader.result;
+    };
+    if (event.target.files[0]) {
+      reader.readAsDataURL(event.target.files[0]);
     }
+  }
 
-    const addRowBtn = document.getElementById('addRowBtn');
-    const removeRowBtn = document.getElementById('removeRowBtn');
-    const tableBody = document.querySelector('#personnelTable tbody');
+  // Tambah & hapus baris
+  const addRowBtn = document.getElementById('addRowBtn');
+  const removeRowBtn = document.getElementById('removeRowBtn');
+  const tableBody = document.querySelector('#personnelTable tbody');
 
-    addRowBtn.addEventListener('click', () => {
-      const rowCount = tableBody.rows.length;
-      const newRowNumber = rowCount + 1;
-      const newRow = document.createElement('tr');
+  addRowBtn.addEventListener('click', () => {
+    const rowCount = tableBody.rows.length;
+    const newRowNumber = rowCount + 1;
+    const newRow = document.createElement('tr');
 
-      newRow.innerHTML = `
-        <td>${newRowNumber}</td>
-        <td><input type="text" name="nama[]"></td>
-        <td><input type="text" name="nipp[]"></td>
-        <td><input type="text" name="jabatan[]"></td>
-        <td><input type="text" name="kedudukan[]"></td>
-        <td class="ttd-cell">
-          <input type="file" accept="image/*" onchange="previewImage(event, 'preview${newRowNumber}')" class="no-print" />
-          <img id="preview${newRowNumber}" class="ttd-preview" />
-        </td>
-      `;
+    newRow.innerHTML = `
+      <td>${newRowNumber}</td>
+      <td><input type="text" name="nama[]"></td>
+      <td><input type="text" name="nipp[]"></td>
+      <td><input type="text" name="jabatan[]"></td>
+      <td><input type="text" name="kedudukan[]"></td>
+      <td class="ttd-cell">
+        <input type="file" accept="image/*" onchange="previewImage(event, 'preview${newRowNumber}')" class="no-print" />
+        <img id="preview${newRowNumber}" class="ttd-preview" />
+      </td>
+    `;
 
-      tableBody.appendChild(newRow);
-    });
+    tableBody.appendChild(newRow);
+  });
 
-    removeRowBtn.addEventListener('click', () => {
-      const rowCount = tableBody.rows.length;
-      if (rowCount > 1) {
-        tableBody.deleteRow(rowCount - 1);
-      }
-    });
-    // Atur waktu sekarang ke input time saat halaman dimuat
-document.addEventListener('DOMContentLoaded', function () {
-  const timeInput = document.getElementById('currentTime');
-  const now = new Date();
-  const hours = now.getHours().toString().padStart(2, '0');
-  const minutes = now.getMinutes().toString().padStart(2, '0');
-  timeInput.value = `${hours}:${minutes}`;
-});
+  removeRowBtn.addEventListener('click', () => {
+    const rowCount = tableBody.rows.length;
+    if (rowCount > 1) {
+      tableBody.deleteRow(rowCount - 1);
+    }
+  });
+
+  // Atur waktu sekarang
+  document.addEventListener('DOMContentLoaded', function () {
+    const timeInput = document.getElementById('currentTime');
+    const now = new Date();
+    const hours = now.getHours().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    timeInput.value = `${hours}:${minutes}`;
+  });
+
+  // Kirim ke Google Sheets
+  document.getElementById("formHadir").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const formData = new FormData(this);
+    fetch("https://script.google.com/macros/s/AKfycbzHf2Ah73oW9ngb6-P_tOVkZJEt_FWSN91OGpWyqPOd1bAuUMTGq4OEXQSJa3pnXbS4/exec", {
+      method: "POST",
+      body: formData
+    })
+      .then(response => response.text())
+      .then(result => {
+        alert("Data berhasil dikirim!");
+        console.log(result);
+      })
+      .catch(error => {
+        alert("Gagal mengirim data.");
+        console.error(error);
+      });
+  });
 
   </script>
 </body>
