@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Soal Essay - Stasiun Karangpucung</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 20px;
+      background: #f2f2f2;
+    }
+    .container {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      max-width: 800px;
+      margin: auto;
+      position: relative;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      height: 50px;
+    }
+    .title {
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .identity {
+      margin: 16px 0;
+    }
+    .identity-row {
+      display: flex;
+      align-items: center;
+      margin: 8px 0;
+    }
+    .identity-row label {
+      width: 80px;
+      font-weight: 600;
+    }
+    .identity-row span {
+      display: inline-block;
+      border: 1px solid #ccc;
+      padding: 8px;
+      min-width: 200px;
+      border-radius: 8px;
+      background: #f9f9f9;
+    }
+    .question {
+      margin: 20px 0;
+    }
+    .question p {
+      font-weight: 600;
+    }
+    .essay {
+      width: 100%;
+      min-height: 100px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+    .hasil {
+      display: none;
+      font-weight: bold;
+      margin-top: 20px;
+      text-align: center;
+      padding: 10px;
+      background: #e3f2fd;
+      border-radius: 8px;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 14px;
+      color: #555;
+    }
+    #waktuPengisian {
+      font-weight: bold;
+    }
+    button {
+      background: #ff6f00;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="quiz">
+    <div class="header">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Danantara_Indonesia.svg/2560px-Danantara_Indonesia.svg.png" class="logo" alt="Logo KAI" />
+      <div class="title">STASIUN KARANGPUCUNG</div>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Logo_PT_Kereta_Api_Indonesia_%28Persero%29_2020.svg/1200px-Logo_PT_Kereta_Api_Indonesia_%28Persero%29_2020.svg.png" class="logo" alt="Logo Dana" />
+    </div>
+
+    <div class="identity">
+      <div class="identity-row"><label>Nama</label><span contenteditable="true" id="nama"></span></div>
+      <div class="identity-row"><label>NIPP</label><span contenteditable="true" id="nipp"></span></div>
+      <div class="identity-row"><label>Jabatan</label><span contenteditable="true" id="jabatan"></span></div>
+    </div>
+
+    <div class="question">
+      <p>1. Berikan contoh potensi bahaya, risiko dan pengendaliannya saat PKD melakukan patroli di jalur/emplasemen berikut!</p>
+      <div class="essay" contenteditable="true" data-name="q1"></div>
+    </div>
+
+    <div class="question">
+      <p>2. Apa Visi dan Misi PT. Kereta Api Indonesia?</p>
+      <div class="essay" contenteditable="true" data-name="q2"></div>
+    </div>
+
+    <div class="question">
+      <p>3. Apa nilai Utama PT KAI dan artinya?</p>
+      <div class="essay" contenteditable="true" data-name="q3"></div>
+    </div>
+
+    <div class="question">
+      <p>4. Jelaskan Budaya Keselamatan Kerja!</p>
+      <div class="essay" contenteditable="true" data-name="q4"></div>
+    </div>
+
+    <div class="question">
+      <p>5. Sebutkan kendala PKD selama berdinas (di area stasiun atau jalur).</p>
+      <div class="essay" contenteditable="true" data-name="q5"></div>
+    </div>
+
+    <div style="margin-top: 30px;">
+      <label><strong>Foto Wajah (Tanda Tangan Visual):</strong></label><br/>
+      <input type="file" accept="image/*" capture="user" onchange="previewFoto(event)" />
+      <div id="previewContainer" style="margin-top:10px;">
+        <img id="fotoWajah" src="" alt="Foto Wajah" style="max-width: 200px; display:none; border:1px solid #ccc; padding:5px; border-radius:8px;" />
+      </div>
+    </div>
+
+    <button onclick="selesaiKuis()">Selesai</button>
+    <div class="hasil" id="hasil">Jawaban Anda telah disimpan.</div>
+    <button onclick="cetakPDF()">Save as PDF</button>
+
+    <div class="footer">
+      <p>Waktu pengisian: <span id="waktuPengisian">-</span></p>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script>
+    function selesaiKuis() {
+      const hasilBox = document.getElementById('hasil');
+      hasilBox.style.display = 'block';
+
+      const now = new Date();
+      const waktuLengkap = now.toLocaleString('id-ID', {
+        dateStyle: 'full',
+        timeStyle: 'short'
+      });
+      document.getElementById('waktuPengisian').innerText = waktuLengkap;
+    }
+
+    function previewFoto(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const img = document.getElementById("fotoWajah");
+        img.src = URL.createObjectURL(file);
+        img.style.display = "block";
+      }
+    }
+
+    function cetakPDF() {
+      const { jsPDF } = window.jspdf;
+      const quizElement = document.getElementById("quiz");
+
+      const tombol = document.querySelectorAll('button');
+      tombol.forEach(btn => btn.style.display = 'none');
+
+      html2canvas(quizElement, {
+        useCORS: true,
+        scale: 2
+      }).then(canvas => {
+        const imgData = canvas.toDataURL("image/png");
+        const pdf = new jsPDF({
+          orientation: 'portrait',
+          unit: 'mm',
+          format: 'a4'
+        });
+
+        const pageWidth = pdf.internal.pageSize.getWidth();
+        const pageHeight = pdf.internal.pageSize.getHeight();
+        const imgWidth = pageWidth;
+        const imgHeight = canvas.height * pageWidth / canvas.width;
+
+        let heightLeft = imgHeight;
+        let position = 0;
+
+        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+        heightLeft -= pageHeight;
+
+        while (heightLeft > 0) {
+          position = heightLeft - imgHeight;
+          pdf.addPage();
+          pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+          heightLeft -= pageHeight;
+        }
+
+        pdf.save("jawaban-essay.pdf");
+        tombol.forEach(btn => btn.style.display = 'inline-block');
+      });
+    }
+  </script>
+</body>
+</html>
