@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Rekap UPO</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .belum-upo-row {
+  background-color: #ffe0e0 !important;
+}
+
+/* Semua kolom kecuali Nama */
+#data-table th, 
+#data-table td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* Header tetap biru tua */
+#data-table thead th {
+  background-color: #003366;
+  color: white;
+}
+
+/* Baris genap-ganjil warna biru muda */
+#data-table tbody tr:nth-child(odd) td {
+  background-color: #cce5ff;
+}
+
+#data-table tbody tr:nth-child(even) td {
+  background-color: #e6f2ff;
+}
+
+/* Kolom Nama (kolom ke-2) rata kiri */
+#data-table td:nth-child(2), 
+#data-table th:nth-child(2) {
+  text-align: left;
+  padding-left: 10px;
+}
+/* Header "Nama" tetap tengah */
+#data-table th:nth-child(2) {
+  text-align: center;
+}
+
+/* Isi kolom Nama (td) tetap kiri */
+#data-table td:nth-child(2) {
+  text-align: left;
+  padding-left: 10px;
+}
+
+</style>
+
+</head>
+<body class="p-4">
+  <h3>Rekapitulasi UPO PPKA Dan POP TW.III 2C Tasikmalaya</h3>
+
+  <div class="mb-3">
+    <button class="btn btn-outline-primary" onclick="filterRows('all')">Semua</button>
+    <button class="btn btn-outline-success" onclick="filterRows('sudah')">Sudah UPO</button>
+    <button class="btn btn-outline-danger" onclick="filterRows('belum')">Belum UPO</button>
+  </div>
+
+  <div class="mb-3">
+  <input type="text" id="search-input" class="form-control" placeholder="Cari nama, NIP, wilayah, dll...">
+</div>
+
+  <div class="mb-3">
+    <span class="badge bg-success me-2" id="jumlah-sudah-upo">Sudah UPO: 0</span>
+    <span class="badge bg-danger" id="jumlah-belum-upo">Belum UPO: 0</span>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover" id="data-table">
+      <thead class="table-dark">
+        <tr>
+          <th>No</th>
+          <th>Nama</th>
+          <th>NIP</th>
+          <th>Wilayah</th>
+          <th>Job Family</th>
+          <th>Nilai UPO</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Data tabel di sini tetap sama, pastikan semua baris data valid -->
+        <!-- Perhatikan bahwa setiap <tr> harus memiliki class 'sudah-upo' atau 'belum-upo' -->
+        <!-- Jika tidak ada nilai UPO, pakai class "belum-upo" -->
+        <!-- Contoh perbaikan pada bagian akhir data yang sebelumnya rusak -->
+
+ <tr class="belum-upo"><td>1</td><td>AA DONA MEILANA .</td><td>52990</td><td>DAOP 2 Bandung</td><td>Ppka</td><td></td></tr>
+<tr class="sudah-upo"><td>2</td><td>AAN JUHANA .</td><td>50850</td><td>DAOP 2 Bandung</td><td>Ppka</td><td>100,00</td></tr>
+<tr class="belum-upo"><td>3</td><td>ACHMAD BAHAR FANANI .</td><td>63907</td><td>DAOP 2 Bandung</td><td>Ppka</td><td></td></tr>
+<tr class="belum-upo"><td>4</td><td>ACHMAD TEGUH GINANJAR .</td><td>61762</td><td>DAOP 2 Bandung</td><td>Ppka</td><td></td></tr>
+<tr class="sudah-upo"><td>5</td><td>AGUNG TAUFIK SYAHPUTRA .</td><td>64981</td><td>DAOP 2 Bandung</td><td>Ppka</td><td>100,00</td></tr>
+<tr class="sudah-upo"><td>6</td><td>AGUS HANDI .</td><td>49362</td><td>DAOP 2 Bandung</td><td>Ppka</td><td>96,00</td></tr>
+<tr class="sudah-upo"><td>7</td><td>AHMAD JULIANA .</td><td>52996</td><td>DAOP 2 Bandung</td><td>Ppka</td><td>96,00</td></tr>
+<tr class="belum-upo"><td>8</td><td>AHMAD TATANG SUTANDAR .</td><td>48808</td><td>DAOP 2 Bandung</td><td>Ppka</td><td></td></tr>
+<tr class="sudah-upo"><td>9</td><td>ALEK NUGRAHA .</td><td>48850</td><td>DAOP 2 Bandung</td><td>Ppka</td><td>100,00</td></tr>
+<tr class="sudah-upo"><td>10</td><td>ALFIAN ARGANATA .</td><td>73640</td><td>DAOP 2 Bandung</td><td>Ppka</td><td>98,00</td></tr>
+<tr class="sudah-upo"><td>11</td><td>AMANDA YOGA KUSUMA .</td><td>69595</td><td>DAOP 2 Bandung</td><td>Ppka</td><td>98,00</td></tr>
+<tr class="sudah-upo"><td>12</td><td>ANDHI ZAKARIYA UTAMA .</td><td>68926</td><td>DAOP 2 Bandung</td><td>Ppka</td><td>98,00</td></tr>
+<tr class="sudah-upo"><td>13</td><td>ANDI SUWARYADI .</td><td>50961</td><td>DAOP 2 Bandung</td><td>Ppka</td><td>96,00</td></tr>
+<tr class="belum-upo"><td>14</td><td>ANFASA BARRU .</td><td>73266</td><td>DAOP 2 Bandung</td><td>Ppka</td><td></td></tr>
+<tr class="sudah-upo"><td>15</td><td>ASEP SOLIHIN .</td><td>48998</td><td>DAOP 2 Bandung</td><td>Ppka</td><td>98,00</td></tr>
+<tr class="belum-upo"><td>16</td><td>AULIA RAHMAN .</td><td>52920</td><td>DAOP 2 Bandung</td><td>Ppka</td><td></td></tr>
+<tr class="sudah-upo"><td>17</td><td>BAMBANG TAJUDIN .</td><td>50875</td><td>DAOP 2 Bandung</td><td>Ppka</td><td>96,00</td></tr>
+<tr class="belum-upo"><td>18</td><td>BUDI HARTONO .</td><td>47197</td><td>DAOP 2 Bandung</td><td>Ppka</td><td></td></tr>
+<tr class="belum-upo"><td>19</td><td>CARTIM .</td><td>48318</td><td>DAOP 2 Bandung</td><td>Ppka</td><td></td></tr>
+<tr class="belum-upo"><td>20</td><td>CRISNA PURNAMA .</td><td>53012</td><td>DAOP 2 Bandung</td><td>Ppka</td><td></td></tr>
+<tr class="belum-upo"><td>21</td><td>DARISNAWAN .</td><td>53028</td><td>DAOP 2 Bandung</td><td>Ppka</td><td></td></tr>
+<tr class="belum-upo"><td>22</td><td>DEDI NURHADI .</td><td>46107</td><td>DAOP 2 Bandung</td><td>Ppka</td><td></td></tr>
+<tr class="sudah-upo"><td>23</td><td>DIAN NOVEMBER .</td><td>53006</td><td>DAOP 2 Bandung</td><td>Ppka</td><td>98,00</td></tr>
+<tr class="belum-upo"><td>24</td><td>DUDI HOERUDIN .</td><td>62309</td><td>DAOP 2 Bandung</td><td>Ppka</td><td></td></tr>
+<tr class="belum-upo"><td>25</td><td>EDI JUANSAH .</td><td>47977</td><td>DAOP 2 Bandung</td><td>Ppka</td><td></td></tr>
+<tr class="belum-upo"><td>26</td><td>EKO AGUS PRASETYO .</td><td>61043</td><td>Kantor Pusat</td><td>Ppka</td><td></td></tr>
+<tr class="belum-upo"><td>27</td><td>EKO SURYONO .</td><td>44460</td><td>DAOP 2 Bandung</td><td>Ppka</td><td></td></tr>
+<tr class="belum-upo"><td>28</td><td>ERI SANDRA .</td><td>52924</td><td>DAOP 2 Bandung</td><td>Ppka</td><td></td></tr>
+<tr class="sudah-upo"><td>29</td><td>FERY ROZA FIRDAUSI .</td><td>64739</td><td>DAOP 2 Bandung</td><td>Ppka</td><td>98,00</td></tr>
+<tr class="belum-upo"><td>30</td><td>FIRMANDI ANANDA .</td><td>50479</td><td>DAOP 2 Bandung</td><td>Ppka</td><td></td></tr>
+<tr class="sudah-upo"><td>31</td><td>HANA PITRIYADI .</td><td>48242</td><td>DAOP 2 Bandung</td><td>Ppka</td><td>88,00</td></tr>
+<tr class="sudah-upo"><td>32</td><td>HENDRA HERDIANSYAH .</td><td>54969</td><td>DAOP 2 Bandung</td><td>Ppka</td><td>100,00</td></tr>
+<tr class="sudah-upo"><td>33</td><td>HENDRA WIJAYA .</td><td>50803</td><td>DAOP 2 Bandung</td><td>Ppka</td><td>98,00</td></tr>
+<tr class="sudah-upo"><td>34</td><td>HERI HERYANTO .</td><td>52977</td><td>DAOP 2 Bandung</td><td>Ppka</td><td>86,00</td></tr>
+<tr class="sudah-upo"><td>35</td><td>HERU SUPRIYADI .</td><td>48100</td><td>DAOP 2 Bandung</td><td>Ppka</td><td>88,00</td></tr>
+<tr class="belum-upo"><td>36</td><td>IRFAN MULYO NUGROHO .</td><td>69099</td><td>DAOP 2 Bandung</td><td>Ppka</td><td></td></tr>
+<tr class="belum-upo"><td>37</td><td>IVAN FAHRIZAL .</td><td>53017</td><td>DAOP 2 Bandung</td><td>Ppka</td><td></td></tr>
+<tr class="sudah-upo"><td>38</td><td>IWAN HIDAYAT .</td><td>52938</td><td>DAOP 2 Bandung</td><td>Ppka</td><td>96,00</td></tr>
+<tr class="belum-upo"><td>39</td><td>KIKI MUHAMAD IHSAN .</td><td>48980</td><td>DAOP 2 Bandung</td><td>Ppka</td><td></td></tr>
+<tr class="sudah-upo"><td>40</td><td>M.ANDRI MARZUKI .</td><td>73422</td><td>DAOP 2 Bandung</td><td>Ppka</td><td>100,00</td></tr>
+<tr class="sudah-upo"><td>41</td><td>MOCHAMAD MAULANA .</td><td>49396</td><td>DAOP 2 Bandung</td><td>Ppka</td><td>98,00</td></tr>
+<tr class="belum-upo"><td>42</td><td>NALLA DYZE ARISTA .</td><td>64606</td><td>DAOP 2 Bandung</td><td>Ppka</td><td></td></tr>
+<tr class="sudah-upo"><td>43</td><td>NANANG SURYANA .</td><td>48248</td><td>DAOP 2 Bandung</td><td>Ppka</td><td>100,00</td></tr>
+<tr class="belum-upo"><td>44</td><td>NANDA ARIPIN .</td><td>53023</td><td>DAOP 2 Bandung</td><td>Ppka</td><td></td></tr>
+<tr class="belum-upo"><td>45</td><td>NURYADI .</td><td>48005</td><td>DAOP 2 Bandung</td><td>Ppka</td><td></td></tr>
+<tr class="belum-upo"><td>46</td><td>PANJI GUNTUR ROMADHON .</td><td>72983</td><td>DAOP 2 Bandung</td><td>Ppka</td><td></td></tr>
+<tr class="belum-upo"><td>47</td><td>PEPEN SURATMAN .</td><td>60675</td><td>DAOP 2 Bandung</td><td>Ppka</td><td></td></tr>
+<tr class="sudah-upo"><td>48</td><td>RAFITULLAH AMAR KHOMEINI .</td><td>71306</td><td>DAOP 2 Bandung</td><td>Ppka</td><td>92,00</td></tr>
+<tr class="belum-upo"><td>49</td><td>RAHMAT KRISTIANTO .</td><td>50853</td><td>DAOP 2 Bandung</td><td>Ppka</td><td></td></tr>
+<tr class="belum-upo"><td>50</td><td>RAHMAT TAUFIQ .</td><td>63896</td><td>DAOP 2 Bandung</td><td>Ppka</td><td></td></tr>
+<tr class="belum-upo"><td>51</td><td>RONI ROHIMAT .</td><td>50888</td><td>DAOP 2 Bandung</td><td>Ppka</td><td></td></tr>
+<tr class="sudah-upo"><td>52</td><td>SUPARMAS .</td><td>48314</td><td>DAOP 2 Bandung</td><td>Ppka</td><td>90,00</td></tr>
+<tr class="belum-upo"><td>53</td><td>TRI YONIF PANCA KARTIKA .</td><td>68936</td><td>DAOP 2 Bandung</td><td>Ppka</td><td></td></tr>
+<tr class="sudah-upo"><td>54</td><td>UUS PERMANA .</td><td>52935</td><td>DAOP 2 Bandung</td><td>Ppka</td><td>100,00</td></tr>
+<tr class="belum-upo"><td>55</td><td>YADI SUPRIADI .</td><td>44782</td><td>DAOP 2 Bandung</td><td>Ppka</td><td></td></tr>
+<tr class="belum-upo"><td>56</td><td>YADI SUPRIADI .</td><td>50920</td><td>DAOP 2 Bandung</td><td>Ppka</td><td></td></tr>
+<tr class="belum-upo"><td>57</td><td>YANA SURYANA .</td><td>50738</td><td>DAOP 2 Bandung</td><td>Ppka</td><td></td></tr>
+<tr class="sudah-upo"><td>58</td><td>YAYAN RUSYAMAN .</td><td>48291</td><td>DAOP 2 Bandung</td><td>Ppka</td><td>90,00</td></tr>
+<tr class="sudah-upo"><td>59</td><td>YOGI NURYANA .</td><td>71312</td><td>DAOP 2 Bandung</td><td>Ppka</td><td>100,00</td></tr>
+<tr class="sudah-upo"><td>60</td><td>YOSA RIKSA JANUAR .</td><td>69339</td><td>DAOP 2 Bandung</td><td>Ppka</td><td>98,00</td></tr>
+<tr class="sudah-upo"><td>61</td><td>YULIADI .</td><td>49034</td><td>DAOP 2 Bandung</td><td>Ppka</td><td>98,00</td></tr>
+<tr class="sudah-upo"><td>62</td><td>YUSUP RONI .</td><td>49314</td><td>DAOP 2 Bandung</td><td>Ppka</td><td>100,00</td></tr>
+<tr class="belum-upo"><td>63</td><td>YUSUP SUHENDAR .</td><td>48748</td><td>DAOP 2 Bandung</td><td>Ppka</td><td></td></tr>
+<tr><td>1</td><td>AEP SAEPULOH .</td><td>50917</td><td>DAOP 2 Bandung</td><td>Pjl</td><td></td></tr>
+<tr><td>2</td><td>ASEP ENDANG SUYANTO .</td><td>50950</td><td>DAOP 2 Bandung</td><td>Pjl</td><td></td></tr>
+<tr><td>3</td><td>ASEP SUDRAJAT .</td><td>50837</td><td>DAOP 2 Bandung</td><td>Plr</td><td></td></tr>
+<tr><td>4</td><td>DASEP SUHENDAR .</td><td>50954</td><td>DAOP 2 Bandung</td><td>Plr</td><td></td></tr>
+<tr><td>5</td><td>HENDRA BASUKI RAHMAT .</td><td>50849</td><td>DAOP 2 Bandung</td><td>Pjl</td><td></td></tr>
+<tr><td>6</td><td>NAJIB FADHLURROHMAN .</td><td>75735</td><td>DAOP 2 Bandung</td><td>Plr</td><td></td></tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    function updateRowClasses() {
+      const rows = document.querySelectorAll('#data-table tbody tr');
+      rows.forEach(row => {
+        const upoText = row.cells[5].textContent.trim();
+        row.classList.remove('sudah-upo', 'belum-upo', 'belum-upo-row');
+
+        if (upoText === '' || upoText === '-' || upoText === '–') {
+          row.classList.add('belum-upo');
+          row.classList.add('belum-upo-row');
+        } else {
+          row.classList.add('sudah-upo');
+        }
+      });
+    }
+
+    function updateCounts() {
+      const sudah = document.querySelectorAll('#data-table tbody tr.sudah-upo').length;
+      const belum = document.querySelectorAll('#data-table tbody tr.belum-upo').length;
+
+      document.getElementById('jumlah-sudah-upo').textContent = `Sudah UPO: ${sudah}`;
+      document.getElementById('jumlah-belum-upo').textContent = `Belum UPO: ${belum}`;
+    }
+
+    function filterRows(status) {
+      const rows = document.querySelectorAll('#data-table tbody tr');
+      rows.forEach(row => {
+        switch (status) {
+          case 'all':
+            row.style.display = '';
+            break;
+          case 'sudah':
+            row.style.display = row.classList.contains('sudah-upo') ? '' : 'none';
+            break;
+          case 'belum':
+            row.style.display = row.classList.contains('belum-upo') ? '' : 'none';
+            break;
+        }
+      });
+      updateCounts(); // update jumlah setelah filter
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      updateRowClasses();
+      updateCounts();
+    });
+
+    document.getElementById('search-input').addEventListener('input', function () {
+  const query = this.value.toLowerCase();
+  const rows = document.querySelectorAll('#data-table tbody tr');
+
+  rows.forEach(row => {
+    const cellsText = Array.from(row.cells).map(cell => cell.textContent.toLowerCase()).join(' ');
+    row.style.display = cellsText.includes(query) ? '' : 'none';
+  });
+});
+
+  </script>
+  
+</body>
+</html>
