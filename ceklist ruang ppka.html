@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Form Pemeriksaan Stasiun</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background-color: #fff;
+        color: #000;
+    }
+    h3, p {
+        text-align: center;
+        margin: 0;
+    }
+    .info-row {
+        display: flex;
+        justify-content: space-between;
+        margin: 15px 0;
+        flex-wrap: wrap;
+    }
+    .info-item {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 14px;
+    }
+    .info-item label {
+        font-weight: bold;
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 14px;
+        margin-top: 20px;
+    }
+    th, td {
+        border: 1px solid #000;
+        padding: 6px;
+        text-align: center;
+    }
+    th {
+        background-color: #f4a024;
+        color: #000;
+        font-weight: bold;
+    }
+    td:nth-child(4), td:nth-child(5) {
+        width: 50px;
+    }
+    .left {
+        text-align: left;
+    }
+    .section-title {
+        background-color: #d9d9d9;
+        font-weight: bold;
+        text-align: left;
+    }
+    .bold-text {
+        font-weight: bold;
+    }
+    input[type="checkbox"], input[type="date"] {
+        transform: scale(1.2);
+        cursor: pointer;
+    }
+    .editable {
+        cursor: text;
+        background-color: #fff9e6;
+    }
+    .editable:focus {
+        outline: 2px solid #f4a024;
+    }
+
+     /* Tombol Print */
+    .print-btn {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        background-color: #f4a024; /* warna korporat PT KAI */
+        color: #000;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .print-btn:hover {
+        background-color: #d98c1f; /* warna lebih gelap saat hover */
+    }
+
+    /* Sembunyikan tombol saat print */
+    @media print {
+        .print-btn {
+            display: none !important;
+        }
+    }
+    
+    
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll(".editable").forEach(cell => {
+            cell.contentEditable = "true";
+        });
+        document.querySelectorAll("tr").forEach(row => {
+            let checkboxes = row.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener("change", function() {
+                    if (this.checked) {
+                        checkboxes.forEach(cb => {
+                            if (cb !== this) cb.checked = false;
+                        });
+                    }
+                });
+            });
+        });
+    });
+</script>
+
+</head>
+<body>
+
+<h3>PT KERETA API INDONESIA (PERSERO)<br>DIREKTORAT OPERASI</h3>
+<p>JL. PERINTIS KEMERDEKAAN NO.1 BANDUNG<br>FORM PEMERIKSAAN STASIUN</p>
+
+<div class="info-row">
+    <div class="info-item">
+        <label>Daop :</label>
+        <span>2 Bandung</span>
+    </div>
+    <div class="info-item">
+        <label>Wilayah :</label>
+        <span>2C Tasikmalaya</span>
+    </div>
+    <div class="info-item">
+        <label>Stasiun :</label>
+        <span>Karangpucung</span>
+    </div>
+    <div class="info-item">
+        <label>Tanggal :</label>
+        <input type="date">
+    </div>
+</div>
+
+<table>
+    <tr>
+        <th rowspan="2">No</th>
+        <th rowspan="2">OBYEK YANG DIPERIKSA</th>
+        <th rowspan="2">SEHARUSNYA</th>
+        <th colspan="2">SAAT DIPERIKSA</th>
+        <th rowspan="2">KETERANGAN</th>
+    </tr>
+    <tr>
+        <th>YA</th>
+        <th>TIDAK</th>
+    </tr>
+
+    <tr class="section-title">
+        <td>A</td>
+        <td colspan="5" class="left">PENGATUR PERJALANAN KERETA API (PPKA)</td>
+    </tr>
+
+    <tr>
+        <td class="bold-text">1</td>
+        <td class="left bold-text">Sertifikat Kecakapan Pengatur Perjalanan Kereta Api</td>
+        <td>Memiliki dan Berlaku</td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td class="editable"></td>
+    </tr>
+    <tr>
+        <td class="bold-text">2</td>
+        <td class="left bold-text">Keterangan Kecakapan Pengatur Perjalanan Kereta Api</td>
+        <td>Memiliki dan Berlaku</td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td class="editable"></td>
+    </tr>
+    <tr>
+        <td class="bold-text">3</td>
+        <td class="left bold-text">Pendukung Perjalanan Kereta Api</td>
+        <td colspan="4"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td class="left">a. Gapeka dan Pendukungnya</td>
+        <td>Ada</td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td class="editable"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td class="left">b. Menandai Garis Perjalanan KA pada Gapeka</td>
+        <td>Ada</td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td class="editable"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td class="left">c. PPK</td>
+        <td>Ada</td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td class="editable"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td class="left">d. WAM</td>
+        <td>Ada</td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td class="editable"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td class="left">e. Daftar Jalur</td>
+        <td>Ada</td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td class="editable"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td class="left">f. Ikhtisar Jam Kerja Stasiun</td>
+        <td>Ada</td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td class="editable"></td>
+    </tr>
+
+    <tr>
+        <td class="bold-text">4</td>
+        <td class="left bold-text">Warta Kereta Api</td>
+        <td colspan="4"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td class="left">a. Tertib Pengisian</td>
+        <td>Tertib</td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td class="editable"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td class="left">b. Bukti Pengawasan KS</td>
+        <td>Ada</td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td class="editable"></td>
+    </tr>
+    <tr>
+        <td class="bold-text">5</td>
+        <td class="left bold-text">Buku Serah Terima Dinasan</td>
+        <td colspan="4"></td>
+
+    </tr>
+        <tr>
+        <td></td>
+        <td class="left">a. Tertib Pengisian</td>
+        <td>Tertib</td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td class="editable"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td class="left">b. Bukti Pengawasan KS</td>
+        <td>Ada</td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td class="editable"></td>
+    </tr>
+        <tr>
+        <td class="bold-text">6</td>
+        <td class="left bold-text">Buku Gangguan Operasional</td>
+        <td colspan="4"></td>
+
+    </tr>
+        <tr>
+        <td></td>
+        <td class="left">a. Tertib Pengisian</td>
+        <td>Tertib</td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td class="editable"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td class="left">b. Bukti Pengawasan KS</td>
+        <td>Ada</td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td class="editable"></td>
+    </tr>
+        </tr>
+        <tr>
+        <td class="bold-text">7</td>
+        <td class="left bold-text">Buku Penjagaan Bentuk dan Pencatatan Counter</td>
+        <td colspan="4"></td>
+
+    </tr>
+        <tr>
+        <td></td>
+        <td class="left">a. Tertib Pengisian</td>
+        <td>Tertib</td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td class="editable"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td class="left">b. Bukti Pengawasan KS</td>
+        <td>Ada</td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td class="editable"></td>
+    </tr>
+
+        <tr>
+        <td class="bold-text">8</td>
+        <td class="left bold-text">Bentuk 84a, 89, 90, 91, 92</td>
+        <td colspan="4"></td>
+
+    </tr>
+        <tr>
+        <td></td>
+        <td class="left">a. Tertib Pengisian</td>
+        <td>Tertib</td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td class="editable"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td class="left">b. Bukti Pengawasan KS</td>
+        <td>Ada</td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td class="editable"></td>
+    </tr>
+
+        <tr>
+        <td class="bold-text">9</td>
+        <td class="left bold-text">Form Perintah Langsir</td>
+        <td colspan="4"></td>
+
+    </tr>
+        <tr>
+        <td></td>
+        <td class="left">a. Tertib Pengisian</td>
+        <td>Tertib</td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td class="editable"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td class="left">b. Bukti Pengawasan KS</td>
+        <td>Ada</td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td class="editable"></td>
+    </tr>
+
+    <tr>
+        <td class="bold-text">10</td>
+        <td class="left bold-text">Ruang Alat Pengamanan</td>
+        <td colspan="4"></td>
+
+    </tr>
+        <tr>
+        <td></td>
+        <td class="left">a. Ikhtisar Gambar Emplasemen</td>
+        <td>Ada</td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td class="editable"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td class="left">b. PDPS</td>
+        <td>Ada</td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td class="editable"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td class="left">b. PDPS Sesuai dengan Alat Pengamanan</td>
+        <td>Ada</td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td class="editable"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td class="left">c. Plombir Kawat</td>
+        <td>Ada</td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td class="editable">Tidak ada Plombir Kawat</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td class="left">d. Plombir Kawat</td>
+        <td>Ada</td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td class="editable">Tidak ada Plombir Benang</td>
+    </tr>
+
+       <tr>
+        <td class="bold-text">11</td>
+        <td class="left bold-text">Kelengkapan Kerja</td>
+        <td colspan="4"></td>
+
+    </tr>
+        <tr>
+        <td></td>
+        <td class="left bold-text">a. APD</td>
+        <td colspan="4"></td>
+    </tr> 
+        <tr>
+        <td></td>
+        <td class="left">1) Sepatu Safety</td>
+        <td>Ada</td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td class="editable"></td>
+    </tr>
+        <tr>
+        <td></td>
+        <td class="left">2) Rompi / Tali Safety</td>
+        <td>Ada</td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td class="editable"></td>
+    </tr>
+        <tr>
+        <td></td>
+        <td class="left">3) Jas Hujan</td>
+        <td>Ada</td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td class="editable"></td>
+    </tr>
+        <tr>
+        <td></td>
+        <td class="left bold-text">b. Alat Kerja</td>
+        <td colspan="4"></td>
+    </tr> 
+        <tr>
+        <td></td>
+        <td class="left">1) Inventaris Semboyan</td>
+        <td>Ada</td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td class="editable"></td>
+    </tr>
+        <tr>
+        <td></td>
+        <td class="left">2) Apitan LIdah Wesel dgn Gembok</td>
+        <td>Ada</td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td class="editable"></td>
+    </tr>
+        <tr>
+        <td></td>
+        <td class="left">3) Stop Blok</td>
+        <td>Ada</td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td class="editable"></td>
+    </tr>
+        <tr>
+        <td></td>
+        <td class="left">4) Komputer Online</td>
+        <td>Ada</td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td class="editable"></td>
+    </tr>
+        <tr>
+        <td class="bold-text">12</td>
+        <td class="left bold-text">Papan Pantauan Pemasangan Stop Blok</td>
+        <td>Ada</td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td class="editable"></td>
+    </tr>
+        <tr>
+        <td class="bold-text">13</td>
+        <td class="left bold-text">Papan Pantauan Taspat</td>
+        <td>Ada</td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td class="editable"></td>
+    </tr>
+        <tr>
+        <td class="bold-text">14</td>
+        <td class="left bold-text">Panjang Jalur Efektif</td>
+        <td>Ada</td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td class="editable"></td>
+    </tr>
+        <tr>
+        <td class="bold-text">15</td>
+        <td class="left bold-text">Penguasaan Teknik Operasi</td>
+        <td colspan="4"></td>
+    </tr>
+            <tr>
+        <td></td>
+        <td class="left">a.  Penguasaan Emplasemen</td>
+        <td>Menguasai</td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td class="editable"></td>
+    </tr>
+        <tr>
+        <td></td>
+        <td class="left">b. Tunjuk Sebut</td>
+        <td>Bisa</td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td class="editable"></td>
+    </tr>
+        <tr>
+        <td></td>
+        <td class="left">c. Pemahaman dan Kepatuhan Regulasi</td>
+        <td>Faham</td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td class="editable"></td>
+    </tr>
+
+        <tr>
+        <td class="bold-text">16</td>
+        <td class="left bold-text">Penerapan 5R</td>
+        <td>Dilakukan</td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td class="editable"></td>
+    </tr>
+        <tr>
+        <td class="bold-text">17</td>
+        <td class="left bold-text">Alat Pemadam Api Ringan (APAR)</td>
+        <td>Ada</td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td class="editable"></td>
+    </tr>
+        <tr>
+        <td class="bold-text">18</td>
+        <td class="left bold-text">Kotak P3K dan Isi</td>
+        <td>Ada</td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td class="editable"></td>
+    </tr>
+        <tr>
+        <td class="bold-text">19</td>
+        <td class="left bold-text">Loker PPKA</td>
+        <td>Ada</td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td class="editable"></td>
+    </tr>
+        <tr>
+        <td class="bold-text">20</td>
+        <td class="left bold-text">Dispenser</td>
+        <td>Ada</td>
+        <td><input type="checkbox"></td>
+        <td><input type="checkbox"></td>
+        <td class="editable"></td>
+    </tr>
+
+</table>
+<button class="print-btn" onclick="window.print()">🖨 Print as PDF</button>
+
+</body>
+</html>
