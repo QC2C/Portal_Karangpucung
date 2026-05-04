@@ -383,7 +383,7 @@
           Panjang Jalur Efektif
         </div>
       </div>
-         <div class="menu-header" onclick="clearPDF(); toggleSubMenu('Kebijakan Keselamatan', this)">
+         <div class="menu-header" onclick="toggleSubMenu('KebijakanKeselamatan', this)"
   <i class="fas fa-check-square"></i> Kebijakan Keselamatan
 </div>
       <div id="KebijakanKeselamatan" class="submenu">
@@ -1051,13 +1051,14 @@
       </div>
     </div>
 
+<div class="content">
+  <div id="contentArea">
+    <h1>Selamat datang di Portal Stasiun Karangpucung 2025</h1>
+    <p>Pilih menu di sebelah kiri untuk melihat informasi lebih lanjut.</p>
+  </div>
 
-        <!-- Default Content Area -->
-<h1>Selamat datang di Portal Stasiun Karangpucung 2025</h1>
-  <p>Pilih menu di sebelah kiri untuk melihat informasi lebih lanjut.</p>
-
- 
-
+  <iframe id="pdfFrame" style="display:none;"></iframe>
+</div>
 
     <script>
       function showHomePage() {
@@ -1197,17 +1198,17 @@ Tabrakan antar KA
         element.classList.add("active");
       }
 
-      function toggleSubMenu(id) {
-        document.querySelectorAll(".submenu").forEach((sm) => {
-          if (sm.id !== id) {
-            sm.style.display = "none";
-          }
-        });
-        const submenu = document.getElementById(id);
-        submenu.style.display =
-          submenu.style.display === "block" ? "none" : "block";
-      }
+function toggleSubMenu(id) {
+  const submenu = document.getElementById(id);
+  if (!submenu) return;
 
+  document.querySelectorAll(".submenu").forEach((sm) => {
+    if (sm !== submenu) sm.style.display = "none";
+  });
+
+  submenu.style.display =
+    submenu.style.display === "block" ? "none" : "block";
+}
       function clearPDF() {
         const frame = document.getElementById("pdfFrame");
         const contentArea = document.getElementById("contentArea");
@@ -1255,22 +1256,6 @@ Tabrakan antar KA
         element.classList.add("active");
       }
 
-let currentSlide = 0;
-  const slides = document.getElementById("slides");
-  const slideCount = slides.children.length;
-
-  slides.style.width = `${slideCount * 100}%`;
-
- 
-
-
-         const existingFrame = document.querySelector("iframe#pdfFrame");
-    if (!existingFrame) {
-      const frame = document.createElement("iframe");
-      frame.id = "pdfFrame";
-      frame.style.display = "none";
-      document.querySelector(".content").appendChild(frame);
-    }
     window.onerror = function(msg) {
   console.log("Error JS:", msg);
 };
