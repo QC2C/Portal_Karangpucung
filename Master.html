@@ -3,15 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portal Stasiun Karangpucung 2025</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Portal Stasiun Indihiang</title>
     <style>
           body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
           }
-
 
           .sidebar {
             width: 150px;
@@ -153,91 +151,6 @@
           .widget tr:nth-child(even) {
             background-color: #f9f9f9;
           }
-              h1 {
-      background-color: #0d47a1;
-      color: white;
-      padding: 20px 0;
-      margin: 0;
-    }
-
-
-
-.slider-container {
-  position: relative;
-  width: 100%;
-  max-width: 1000px;
-  margin: 20px auto;
-  overflow: hidden;
-  border-radius: 15px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-}
-
-
-.slides {
-  display: flex;
-  width: 100%;
-  transition: transform 0.5s ease-in-out;
-}
-
-
-
-.slides img {
-  width: 100%;
-  height: 800px;
-  object-fit: contain; /* biar gak terpotong */
-  background-color: #000; /* opsional: kasih latar hitam */
-  border-radius: 5px;
-}
-
-
-
-
-
-    .nav-button {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(0,0,0,0.5);
-      color: white;
-      font-size: 24px;
-      padding: 10px;
-      cursor: pointer;
-      border: none;
-      border-radius: 50%;
-      z-index: 1;
-    }
-
-    .prev {
-      left: 10px;
-    }
-
-    .next {
-      right: 10px;
-    }
-
-    @media (max-width: 768px) {
-  .slider-container {
-    width: 100%;
-    margin: 10px auto;
-    border-radius: 10px;
-  }
-
-.slides img {
-  width: 100%;
-  height: auto;
-  max-height: 400px;
-  object-fit: contain;
-  border-radius: 10px;
-}
-
-
-
-  .nav-button {
-    font-size: 18px;
-    padding: 8px;
-  }
-}
-
     </style>
   </head>
   <body>
@@ -249,13 +162,14 @@
         &#9776;
       </button>
       <h3 style="color: #ffffff; font-size: 14px;">Menu</h3>
-      <div class="menu-header" onclick="showHomePage()">
-  <i class="fas fa-home"></i> Beranda
-</div>
-      <div class="menu-header" onclick="clearPDF(); toggleSubMenu('Profil', this)">
-  <i class="fas fa-id-card"></i> Profil
-</div>
+      <div class="menu-header" onclick="showHomePage()">Beranda</div>
 
+      <div
+        class="menu-header"
+        onclick="clearPDF(); toggleSubMenu('Profil', this)"
+      >
+        Profil
+      </div>
       <div id="Profil" class="submenu">
         <div
           class="menu-item"
@@ -263,809 +177,152 @@
         >
           Visi dan Misi
         </div>
-        <div
-          class="menu-item"
-          onclick="showHTML(this, 'struktur_org_Direksi.html')"
-        >
+        <div class="menu-item" onclick="showPDF(this, 'judulhtml')">
           Struktur Organisasi Direksi Kai
         </div>
-                <div class="menu-item" onclick="showPDF(this, '1vgslPBvo9bxDCqvgBwbAr9MeceI-Vppw')">
-          Struktur Organisasi Direksi PT KAI JPEG
-        </div>
-        <div class="menu-item" onclick="showPDF(this, '1P9BRBYIAAhEwLtmT_M-pA39h4jzEDfnz')">
-          Direksi PT Reska Multi Usaha
-        </div>
-
-        <div class="menu-item" onclick="showPDF(this, '1HPh_UWHK-IvJXzhwSGKtQS7yLOt5l1wy')">
-          Manajemen Operasi Daop 2 Bd
-        </div>
-
-        <div class="menu-item" onclick="showHTML(this, 'struktur_org_KNP.html')">
-          Struktur Organisasi Stasiun Karangpucung
-        </div>
-        <div class="menu-item" onclick="showPDF(this, '1yLFwXAlPEZNmn46GFp0csGCojXy83K2s')">
-          Data Nominatif Karangpucung
+        <div class="menu-item" onclick="showPDF(this, 'judulhtml')">
+          Struktur Organisasi Direktoran Operasi
         </div>
         <div
           class="menu-item"
-          onclick="showPDF(this, '1A0Zmj8FyBTCVKKkSa5EMMqX06Buh-BC8')"
+          onclick="showHTML(this, 'struktur_org_ih.html')"
         >
-          Gambar Emplasemen
+          Struktur Organisasi Stasiun Indihiang
         </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '171QVMqTAp4emGriBZ_UV06jyb1CV_EEi')"
-        >
-          Panjang Jalur Efektif
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '1QP1mmib6EUISocPz-vyTKRKf6iEAlaou')"
-        >
-          Data Kelandaian
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '1bKpO15hM5y4iwv5YbmWBfFbXyN5M1DrX')"
-        >
-          Data Jalur dan Wesel Karangpucung
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '1NWh5fbiRTkbINKo6We7SA7ZLEZiTdrYw')"
-        >
-          PDPS Knp
-        </div>
-        <div class="menu-item" onclick="showPDF(this, '1HHw2CXn7Apznau8SAjnTL89gTb1T1f1d')">
-          Peraturan Stasiun Knp
-        </div>
+        <div class="menu-item" onclick="showPDF(this, '1NlgePAk5oe4-pGoP8ofa_GVuUeYS2Yhy')">Gambar Emplasemen</div>
       </div>
 
-      <!-- Gapeka -->
-      <div class="menu-header" onclick="clearPDF(); toggleSubMenu('gapek', this)">
-  <i class="fas fa-check-square"></i> Gapeka dan Pendukungnya
-</div>
+       <!-- Peraturan Dinas -->
+    <div class="menu-header" onclick="clearPDF(); toggleSubMenu('peraturan')">Peraturan Dinas</div>
+    <div id="peraturan" class="submenu">
+      <div class="menu-item" onclick="showPDF(this, '17NCFcSsUOsMRKJ47gxwucfs0kAcEDCMH')">PD 3</div>
+      <div class="menu-item" onclick="showPDF(this, '1ON9S8IrkcDQDPyFjUWzew5E2em9eOFTk')">PD 8A</div>
+      <div class="menu-item" onclick="showPDF(this, '1NhYvoT5iJWq6C9BdP8_e4lz6fNSMz_jF')">PD 10A</div>
+      <div class="menu-item" onclick="showPDF(this, '1uzaQTdqbjEOMvFNdtFpE_ijUhjvAofik')">PD 11</div>
+      <div class="menu-item" onclick="showPDF(this, '1qH2BocY7pthWl2CLdLe8GYZqK8iM4ZQN')">PD 12</div>
+      <div class="menu-item" onclick="showPDF(this, '112Om5vn3d1bP9rdhjvLtSmVGHfTvslC5')">PD 13A</div>
+      <div class="menu-item" onclick="showPDF(this, '11x7inkffKohNtzbKjF0gPuTQ42piFDAN')">PD 15</div>
+      <div class="menu-item" onclick="showPDF(this, '1SdC9AvtNgUY4nX-iKrW9C8FbGsrPbsml')">PD 16A</div>
+      <div class="menu-item" onclick="showPDF(this, '1ZkO_YwVPjDd2llCLYdaQ3KauCOcdNsHY')">PD 19 Jilid I</div>
+      <div class="menu-item" onclick="showPDF(this, '1ab245NFd74cJU-U1X6o0newJNi_Brsc4')">PD 19 Jilid II</div>
+      <div class="menu-item" onclick="showPDF(this, '19ZfhERYrMAUSSFbN1hNMTlBPHLE3zu6R')">PD 19 Jilid III</div>
+      <div class="menu-item" onclick="showPDF(this, '1sqrw5wOoVWF1JBiEwhuXXGFLcvREPItj')">PD 21R</div>
+      <div class="menu-item" onclick="showPDF(this, '1Qy1hDfTttq52jmWY6zGXJ9oZ_9IFckGL')">PD 22</div>
+      <div class="menu-item" onclick="showPDF(this, '1dusUuE-TD8rA6JMmqZipO6SnnZQOB77y')">PD 23</div>
+      <div class="menu-item" onclick="showPDF(this, '1fVeRTGpNyLZvgUT-Hk-3IoN9hjSC0zNw')">PDPS</div>
+      <div class="menu-item" onclick="showPDF(this, '1priZXM-WSU76BqMmYsFziqNGjPqOvLJp')">Peraturan Stasiun</div>
+      <div class="menu-item" onclick="showPDF(this, '1yTi3shPJNWRRs3Ttc2WHrTEntE1NxADz')">Buku Saku Ppka</div>
+    </div>
 
-  
-      <div id="gapek" class="submenu">
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '1UYDjdqoS4AzQqiWBPLsWZMwO_oPZ_LoX')"
-        >
-          Lembar 1
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '1st0Qvu4LbX1o80Bidmh4oun63CTqIyVa')"
-        >
-          Lembar 2
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '18dzLnjPIPNUVwSMmXXHZqMMoWdyc1j95')"
-        >
-          Lembar 3
-        </div>
-             <div
-          class="menu-item"
-          onclick="showPDF(this, '1mzNDj94zIw6pJn4R3xspvzeLUDAwWtIl')"
-        >
-          PPK
-        </div>
-        <div
-          class="menu-item"
-          onclick="showHTML(this, 'Jadwal_Ka_pencarian.html')"
-        >
-          Jadwal KA
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '19HkQ_CfsQYUG0HFchSwh7LohhjZcUi_G')"
-        >
-          PTDO 2025
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '1z9yaIFxlt3Cpwb2lJhb57_HXbeAFQ6sb')"
-        >
-          IJK
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '1TUDQRpTdCmvas91s_zpfGJntrFGy6zut')"
-        >
-          Daftar Jalur
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '198oiNVo79TmJBI1LiY7XvVBX8aDDGN19')"
-        >
-          Panjang Jalur Efektif
-        </div>
-      </div>
-         <div class="menu-header" onclick="toggleSubMenu('KebijakanKeselamatan', this)"
-  <i class="fas fa-check-square"></i> Kebijakan Keselamatan
-</div>
-      <div id="KebijakanKeselamatan" class="submenu">
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '1lf61L-heYTmS0L7pNHwNWF66TbhMYlSi')">
-          Kebijakan Keselamatan 2025
-        </div>
-        </div>
-      <!-- Peraturan Dinas -->
-<div class="menu-header" onclick="clearPDF(); toggleSubMenu('Peraturan', this)">
-  <i class="fas fa-check-square"></i> Peraturan Dinas
+<!-- Gapeka -->
+<div class="menu-header" onclick="clearPDF(); toggleSubMenu('gapek')">Gapeka dan Pendukungnya</div>
+<div id="gapek" class="submenu">
+  <div class="menu-item" onclick="showPDF(this, '1UYDjdqoS4AzQqiWBPLsWZMwO_oPZ_LoX')">Lembar 1</div>
+  <div class="menu-item" onclick="showPDF(this, '1st0Qvu4LbX1o80Bidmh4oun63CTqIyVa')">Lembar 2</div>
+  <div class="menu-item" onclick="showPDF(this, '18dzLnjPIPNUVwSMmXXHZqMMoWdyc1j95')">Lembar 3</div>
+  <div class="menu-item" onclick="showPDF(this, '1s-0UK5pRiqRItopkVJzI4-fMy3J_RksD')">IJK dan Pendukungnya</div>
 </div>
 
 
-      <div id="Peraturan" class="submenu">
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '17NCFcSsUOsMRKJ47gxwucfs0kAcEDCMH')"
-        >
-          PD 3
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '1ON9S8IrkcDQDPyFjUWzew5E2em9eOFTk')"
-        >
-          PD 8A
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '1NhYvoT5iJWq6C9BdP8_e4lz6fNSMz_jF')"
-        >
-          PD 10A
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '1uzaQTdqbjEOMvFNdtFpE_ijUhjvAofik')"
-        >
-          PD 11
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '1qH2BocY7pthWl2CLdLe8GYZqK8iM4ZQN')"
-        >
-          PD 12
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '112Om5vn3d1bP9rdhjvLtSmVGHfTvslC5')"
-        >
-          PD 13A
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '11x7inkffKohNtzbKjF0gPuTQ42piFDAN')"
-        >
-          PD 15
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '1SdC9AvtNgUY4nX-iKrW9C8FbGsrPbsml')"
-        >
-          PD 16A
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '1ZkO_YwVPjDd2llCLYdaQ3KauCOcdNsHY')"
-        >
-          PD 19 Jilid I
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '1ab245NFd74cJU-U1X6o0newJNi_Brsc4')"
-        >
-          PD 19 Jilid II
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '19ZfhERYrMAUSSFbN1hNMTlBPHLE3zu6R')"
-        >
-          PD 19 Jilid III
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '1sqrw5wOoVWF1JBiEwhuXXGFLcvREPItj')"
-        >
-          PD 21R
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '1Qy1hDfTttq52jmWY6zGXJ9oZ_9IFckGL')"
-        >
-          PD 22
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '1dusUuE-TD8rA6JMmqZipO6SnnZQOB77y')"
-        >
-          PD 23
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '1NWh5fbiRTkbINKo6We7SA7ZLEZiTdrYw')"
-        >
-          PDPS
-        </div>
 
 
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '1yTi3shPJNWRRs3Ttc2WHrTEntE1NxADz')"
-        >
-          Buku Saku Ppka
-        </div>
+    <!-- SOP Perka -->
+    <div class="menu-header" onclick="clearPDF(); toggleSubMenu('simulasi', this)">SOP Perka</div>
+    <div id="simulasi" class="submenu">
+      <div class="menu-item" onclick="showPDF(this, '1OGvxiB6brRwdNEzU-2a_MXSZj8GzbnDkbtyBJRKG3Mc')">SOP Serah Terima Ppka</div>
+      <div class="menu-item" onclick="showPDF(this, '12QSrXiO6g0MWkbegxWkf0Zd9JIo6HYCp')">Inst. Kerja Kondisi Normal</div>
+    </div>
+
+
+
+    <!-- Administrasi Perka -->
+    <div class="menu-header" onclick="clearPDF(); toggleSubMenu('Administrasi Perka', this)">Administrasi Perka</div>
+    <div id="Administrasi Perka" class="submenu">
+      <div class="menu-item" onclick="showPDF(this, '15OM9_mfuHwWtVTybNRIMvRbqHvUM6VDX8BSCTEvx3Vs')">Nominatif Pegawai</div>
+      <div class="menu-item" onclick="showPDF(this, '1HNWgd44sbBbOKKvu5o2_9SyMDpA1hOue')">Jadwal Dinasan</div>
+      <div class="menu-item" onclick="showPDF(this, '14y3_ASTTfTQYsGwPm0YS4nwRxjfc84hr')">Jadwal KA</div>
+      <div class="menu-item" onclick="showPDF(this, '1mlOpWtyQQReDxShHL9V6-KBJwLWxQ-Bp')">PPK</div>
+      <div class="menu-item" onclick="showHTML(this, 'Serah_terima_ppka.html')">Form Serah Terima PPKA</div>
+      <div class="menu-item" onclick="showHTML(this, 'Serah_terima_Pjl.html')">Form Serah Terima PJL</div>
+    </div>
+
+
+
+<div class="menu-header" onclick="clearPDF(); toggleSubMenu('Simulasi Perka', this)">
+  Video Simulasi Perka
+</div>
+<div id="Simulasi Perka" class="submenu">
+  <div class="menu-item" onclick="showYouTube(this, 'https://www.youtube.com/embed/W593k9nFJwI')">Pemasangan Apitan Lidah Wesel</div>
+  <div class="menu-item" onclick="showYouTube(this, 'https://www.youtube.com/embed/RaRzDz2mN-o')">Pengawasan Langsir</div>
+  <div class="menu-item" onclick="showYouTube(this, 'https://www.youtube.com/embed/511mldzVrx8?si')">Rangkaian Ka Terputus</div>
+  <div class="menu-item" onclick="showYouTube(this, 'https://www.youtube.com/embed/5U3xvEjqCus?si')">Memasukan KA ke jalur isi Mekanik</div>
+  <div class="menu-item" onclick="showYouTube(this, 'https://www.youtube.com/embed/7slP8p6jzLI?si')">Blb Mekanik dan Elektrik</div>
+  <div class="menu-item" onclick="showYouTube(this, 'https://www.youtube.com/embed/HCKm0m7ilyg')">Pelayanan Wesel Elektrik</div>
+  <div class="menu-item" onclick="showYouTube(this, 'https://www.youtube.com/embed/HUyNs5vbfao')">Persilangan KA yang panjang Rangkaian Melebihi jalur Emplasemen</div>
+  <div class="menu-item" onclick="showYouTube(this, 'https://www.youtube.com/embed/K59gPYXa4i0')">Semboyan 4a</div>
+  <div class="menu-item" onclick="showYouTube(this, 'https://www.youtube.com/embed/Pj5xcGnVipI')">Blb Di Stasiun Emplasemen panjang</div>
+  <div class="menu-item" onclick="showYouTube(this, 'https://www.youtube.com/embed/KAsZJXt_Rzg')">Llbl</div>
+  <div class="menu-item" onclick="showYouTube(this, 'https://www.youtube.com/embed/P7T1g7REpks')">Masinis menerima bentuk Bh</div>
+  <div class="menu-item" onclick="showYouTube(this, 'https://www.youtube.com/embed/Pf4CIs6Crr0')">Pemberian Ms</div>
+  <div class="menu-item" onclick="showYouTube(this, 'https://www.youtube.com/embed/SwQGttd-Doo')">Masuk Jalur Isi Elektrik</div>
+  <div class="menu-item" onclick="showYouTube(this, 'https://www.youtube.com/embed/eDQvPHmKKPs')">Langsir Melewati S.7b</div>
+  <div class="menu-item" onclick="showYouTube(this, 'https://www.youtube.com/embed/hOjbyVI9sgk')">Kewajiban PPKA/PAP di Stasiun yang ditentukan</div>
+  <div class="menu-item" onclick="showYouTube(this, 'https://www.youtube.com/embed/mWZEogzzbuI')">Tindakan yang harus dilakukan saat KA datang masuk atau langsung</div>
+  <div class="menu-item" onclick="showYouTube(this, 'https://www.youtube.com/embed/ml017kHCLUI')">
+    Wesel Terlanggar
+  </div>
+  <div class="menu-item" onclick="showYouTube(this, 'https://www.youtube.com/embed/p547cLdc5_g')">
+    KA Tertemper Orang
+  </div>
+  <div class="menu-item" onclick="showYouTube(this, 'https://www.youtube.com/embed/ryIpN9kN7-A')">
+    SOP Pemeriksaan Lengkung
+  </div>
+  <div class="menu-item" onclick="showYouTube(this, 'https://www.youtube.com/embed/tRqJlhELLU0')">
+    Langsir lebih 1 Petugas
+  </div>
+  <div class="menu-item" onclick="showYouTube(this, 'https://www.youtube.com/embed/vCQ2boCTAhw')">
+    KA Tanpa Semboyan 21
+  </div>
+  <div class="menu-item" onclick="showYouTube(this, 'https://www.youtube.com/embed/vJ0J7tNyRGk')">
+    Jalur Ganda salah satu jalur harus ditutup
+  </div>
+  <div class="menu-item" onclick="showYouTube(this, 'https://www.youtube.com/embed/vTTrkTbdUT4')">
+    PPJ Belum masuk
+  </div>
+  <div class="menu-item" onclick="showYouTube(this, 'https://www.youtube.com/embed/vycJvVHZiHk')">
+    Pengisian Starlink
+  </div>
+  <div class="menu-item" onclick="showYouTube(this, 'https://www.youtube.com/embed/SrvOtX0txXE')">
+    Pengisian WKP Starlink
+  </div>
+</div>
+
+
+
+
+ <div class="menu-header" onclick="clearPDF(); toggleSubMenu('Webinar')">Video Webinar</div>
+<div id="Webinar" class="submenu">
+
+  <div class="menu-item" onclick="showYouTube(this, 'https://www.youtube.com/embed/dT1OnFrt2JE')">Kesehatan Mental Pekerja</div>        
+
+        <div class="menu-item"onclick="showYouTube(this, 'https://www.youtube.com/embed/QjfYFbpNvyw')">Safety Induction Stasiun Indihiang</div>
+        <div class="menu-item"onclick="showYouTube(this, 'https://www.youtube.com/embed/l27ov3X6pv8')">Safety Campaign</div>
       </div>
 
-      <!-- SOP  Kerja -->
-
-<div class="menu-header" onclick="clearPDF(); toggleSubMenu('sop', this)">
-  <i class="fas fa-check-square"></i> SOP Perka
-</div>
-
-      <div id="sop" class="submenu">
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '13eyAoo1i7S7jamce2fd0fyIh4XNBnEzP')"
-        >
-          Langsir Menggunakan HT
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '1E7-bB94fZQmemTD7aCVwwXDj6-VXoPxj')"
-        >
-          MS Via Suara
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '1VcHqfJbR8yq3ydN4KQHAiAZikySeSrlJ')"
-        >
-          Prosedur Ijin Kerja
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '12bVAwNcOuX_Ydl27PimAdEBz_i081uTW')"
-        >
-          Gerakan 5R
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '1mySGlNc1M5XXeFacCB0w5oyAscTrxSY3')"
-        >
-          Penggunaan APD
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '1DG64uqaA4WmtS21xJjP3GBgWhQzThKXD')"
-        >
-          Tanggap darurat Gangguam Operasional Ka
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '11e42nn4bZnojReojL6fXzRQrJDwF3_A9')"
-        >
-          Penanganan Gangguan Perka Akibat Kerusakan Jalan Rel
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '13aglLf-O0JzalG9NX9SzvKr66CWgFzRG')"
-        >
-          Pengamanan Di Stasiun
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '1OD82Co9qrx6mQAZI4Nt7p4kKBktz1x_i')"
-        >
-          Penggunaan Radio WS
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '1BnZWmroK0q1VfBWv3bCUUqJBobNHtsIj')"
-        >
-          Pelumasan Dan Kebersihan Wesel
-        </div>
-                <div class="menu-item" onclick="showPDF(this, '1OQnu28Qywn5lBSYPW2bCqObTZjGeFnYa')">Daily Safety Awareness</div>
-
-      </div>
-
-      <!-- Instruksi  Kerja -->
-
- <div class="menu-header" onclick="clearPDF(); toggleSubMenu('simulasi', this)">
-  <i class="fas fa-check-square"></i> Instruksi  Kerja
-</div>
-
-      <div id="simulasi" class="submenu">
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '1VtdxAdFVFxXEs8wJ_CgeqmEtT33vG_kR')"
-        >
-          Kondisi Perka Normal
-        </div>
-
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '10hrYnz30yoJhQ5gYrAksNSFgn_W-hQpR')"
-        >
-          Kondisi Perka Tidak Normal
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '1n04qSDtw43JNho9hvuQyDUi-J2XkF2-Z')"
-        >
-          Serah Terima Ppka
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '1yb11u0pJ1mlIuVykIVaPJ6MEMmCp2wO_')"
-        >
-          IK Langsir
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '1yysYYntOiVYkp0uvYtl6PO-xxl7hmumZ')"
-        >
-          Pemeriksaan Jalur Menggunakan KPJ
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '1b8a_eNynMWvY2qkPbNGbUMt6lckWBidQ')"
-        >
-          Gangguan Wesel (berkedip)
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '1oOHav54GjDmpvbaoakuev26qOG5gsXaP')"
-        >
-          Wesel Terlanggar
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '1ZEabv-4W6T4c3BRw689X8EIKYaEAMlqd')"
-        >
-          Pemasangan Apitan Lidah Wesel
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '1dDzpi0pVNUurrbP_5zK7MrEU4X3NXJoJ')"
-        >
-          Gangguan Hubungan Blok
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '1GUhWZ2mZTUA99pHGlYEB04HR41mO4SOK')"
-        >
-          Gangguan Hubungan Blok dan Alat Telekomunikasi
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '12AgGoAz9kqu6qakB9tDAqyfeFdnNsY7Y')"
-        >
-          Gangguan Pendeteksi KA
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '1Y_yfyV4UZLNeokdtYE52a9Su_DN_3dx2')"
-        >
-          Gangguan Track Wesel
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '1CFZzADr_O9DJdF7CLp_tqG5K0JVmR2My')"
-        >
-          Saat Panel Pelayanan Padam
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '1yjXgckqkVsIbPOIWok4vsyXM768TjWeA')"
-        >
-          KA Tanpa Semboyan 21
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '1CrM_RfpafgANvMIwzwcXV7-nZwPTwH4_')"
-        >
-          Tanggap Darurat
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '1yxQf6mJwWRB8hRxLR6d_1IGiktvPcngg')"
-        >
-          Pengamanan Stasiun
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '18takaHCl8NNcFH5uXOxT30Jukj5owJnX')"
-        >
-          Kebersihan Stasiun
-        </div>
-
-      </div>
-
-      <!-- Administrasi Perka -->
-<div class="menu-header" onclick="clearPDF(); toggleSubMenu('Administrasi Perka', this)">
-  <i class="fas fa-check-square"></i> ADM Perka
-</div>
-
-      <div id="Administrasi Perka" class="submenu">
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '15OM9_mfuHwWtVTybNRIMvRbqHvUM6VDX8BSCTEvx3Vs')"
-        >
-          Nominatif Pegawai
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '1AW8mpLLmi8mvMVQs89B--zJhqtDgufIt')"
-        >
-          Jadwal Dinasan
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '1ThmR5QsoNBoBtZ3028q7AZRB7QvJyd4a')"
-        >
-          Jadwal KA
-        </div>
-   
-        <div
-          class="menu-item"
-          onclick="showHTML(this, 'Serah_terima_ppka.html')"
-        >
-          Form Serah Terima PPKA
-        </div>
-        <div
-          class="menu-item"
-          onclick="showHTML(this, 'ceklist ruang ppka.html')"
-        >
-          Ceklist Ruang   PPKA
-        </div>
-      </div>
-
- <div class="menu-header" onclick="clearPDF(); toggleSubMenu('Simulasi Perka', this)">
-  <i class="fas fa-check-square"></i> Video Simulasi Perka
-</div>
-      <div id="Simulasi Perka" class="submenu">
-        <div
-          class="menu-item"
-          onclick="showYouTube(this, 'https://www.youtube.com/embed/W593k9nFJwI')"
-        >
-          Pemasangan Apitan Lidah Wesel
-        </div>
- <div
-          class="menu-item"
-          onclick="showYouTube(this, 'https://www.youtube.com/embed/RaRzDz2mN-o')"
-        >
-          Pengawasan Langsir
-        </div>
-        <div
-          class="menu-item"
-          onclick="showYouTube(this, 'https://www.youtube.com/embed/nVz6xaPieNQ?si=lbCUHsbY5m9Q2tda')"
-        >
-          Langsir Menggunakan HT
-        </div>
-        <div
-          class="menu-item"
-          onclick="showYouTube(this, 'https://www.youtube.com/embed/511mldzVrx8?si')"
-        >
-          Rangkaian Ka Terputus
-        </div>
-        <div
-          class="menu-item"
-          onclick="showYouTube(this, 'https://www.youtube.com/embed/5U3xvEjqCus?si')"
-        >
-          Memasukan KA ke jalur isi Mekanik
-        </div>
-        <div
-          class="menu-item"
-          onclick="showYouTube(this, 'https://www.youtube.com/embed/7slP8p6jzLI?si')"
-        >
-          Blb Mekanik dan Elektrik
-        </div>
-        <div
-          class="menu-item"
-          onclick="showYouTube(this, 'https://www.youtube.com/embed/HCKm0m7ilyg')"
-        >
-          Pelayanan Wesel Elektrik
-        </div>
-        <div
-          class="menu-item"
-          onclick="showYouTube(this, 'https://www.youtube.com/embed/HUyNs5vbfao')"
-        >
-          Persilangan KA yang panjang Rangkaian Melebihi jalur Emplasemen
-        </div>
-        <div
-          class="menu-item"
-          onclick="showYouTube(this, 'https://www.youtube.com/embed/K59gPYXa4i0')"
-        >
-          Semboyan 4a
-        </div>
-        <div
-          class="menu-item"
-          onclick="showYouTube(this, 'https://www.youtube.com/embed/Pj5xcGnVipI')"
-        >
-          Blb Di Stasiun Emplasemen panjang
-        </div>
-        <div
-          class="menu-item"
-          onclick="showYouTube(this, 'https://www.youtube.com/embed/KAsZJXt_Rzg')"
-        >
-          Llbl
-        </div>
-        <div
-          class="menu-item"
-          onclick="showYouTube(this, 'https://www.youtube.com/embed/P7T1g7REpks')"
-        >
-          Masinis menerima bentuk Bh
-        </div>
-        <div
-          class="menu-item"
-          onclick="showYouTube(this, 'https://www.youtube.com/embed/Pf4CIs6Crr0')"
-        >
-          Pemberian Ms
-        </div>
-        <div
-          class="menu-item"
-          onclick="showYouTube(this, 'https://www.youtube.com/embed/SwQGttd-Doo')"
-        >
-          Masuk Jalur Isi Elektrik
-        </div>
-        <div
-          class="menu-item"
-          onclick="showYouTube(this, 'https://www.youtube.com/embed/eDQvPHmKKPs')"
-        >
-          Langsir Melewati S.7b
-        </div>
-        <div
-          class="menu-item"
-          onclick="showYouTube(this, 'https://www.youtube.com/embed/hOjbyVI9sgk')"
-        >
-          Kewajiban PPKA/PAP di Stasiun yang ditentukan
-        </div>
-        <div
-          class="menu-item"
-          onclick="showYouTube(this, 'https://www.youtube.com/embed/mWZEogzzbuI')"
-        >
-          Tindakan yang harus dilakukan saat KA datang masuk atau langsung
-        </div>
-        <div
-          class="menu-item"
-          onclick="showYouTube(this, 'https://www.youtube.com/embed/ml017kHCLUI')"
-        >
-          Wesel Terlanggar
-        </div>
-        <div
-          class="menu-item"
-          onclick="showYouTube(this, 'https://www.youtube.com/embed/p547cLdc5_g')"
-        >
-          KA Tertemper Orang
-        </div>
-        <div
-          class="menu-item"
-          onclick="showYouTube(this, 'https://www.youtube.com/embed/ryIpN9kN7-A')"
-        >
-          SOP Pemeriksaan Lengkung
-        </div>
-        <div
-          class="menu-item"
-          onclick="showYouTube(this, 'https://www.youtube.com/embed/tRqJlhELLU0')"
-        >
-          Langsir lebih 1 Petugas
-        </div>
-        <div
-          class="menu-item"
-          onclick="showYouTube(this, 'https://www.youtube.com/embed/vCQ2boCTAhw')"
-        >
-          KA Tanpa Semboyan 21
-        </div>
-        <div
-          class="menu-item"
-          onclick="showYouTube(this, 'https://www.youtube.com/embed/vJ0J7tNyRGk')"
-        >
-          Jalur Ganda salah satu jalur harus ditutup
-        </div>
-        <div
-          class="menu-item"
-          onclick="showYouTube(this, 'https://www.youtube.com/embed/vTTrkTbdUT4')"
-        >
-          PPJ Belum masuk
-        </div>
-        <div
-          class="menu-item"
-          onclick="showYouTube(this, 'https://www.youtube.com/embed/vycJvVHZiHk')"
-        >
-          Pengisian Starlink
-        </div>
-        <div
-          class="menu-item"
-          onclick="showYouTube(this, 'https://www.youtube.com/embed/SrvOtX0txXE')"
-        >
-          Pengisian WKP Starlink
-        </div>
-        <div
-          class="menu-item"
-          onclick="showYouTube(this, 'https://www.youtube.com/embed/RaRzDz2mN-o?si=HRD5CyUh2NlaCgyK')"
-        >
-          Pengawasan langsiran
-        </div>
-        <div
-          class="menu-item"
-          onclick="showYouTube(this, 'https://www.youtube.com/embed/sfYM3E2cJ8E?si=J2D-rES1TMqCAR3-')"
-        >
-          Tunjuk Sebut Saat akan Melintas Jalur
-        </div>
-<div
-  class="menu-item"
-  onclick="showVideo(this, 'https://edukai.kai.id/course/view.php?id=3138')"
->
-  KA Tertemper Orang
-</div>
-</div>
-
-
-
-
-<div class="menu-header" onclick="clearPDF(); toggleSubMenu('Webinar', this)">
-  <i class="fas fa-check-square"></i> Video Webinar
-</div>
-
-
-      <div id="Webinar" class="submenu">
-        <div
-          class="menu-item"
-          onclick="showYouTube(this, 'https://www.youtube.com/embed/dT1OnFrt2JE')"
-        >
-          Kesehatan Mental Pekerja
-        </div>
-
-        <div
-          class="menu-item"
-          onclick="showYouTube(this, 'https://www.youtube.com/embed/3nEb_E-GqYo')"
-        >
-          Safety Induction Stasiun Karangpucung
-        </div>
-        <div
-          class="menu-item"
-          onclick="showYouTube(this, 'https://www.youtube.com/embed/l27ov3X6pv8')"
-        >
-          Safety Campaign
-        </div>
-      </div>
-
-       <!-- SOAL UJI PETIK -->
-         <div class="menu-header" onclick="clearPDF(); toggleSubMenu('Soal', this)">
-  <i class="fas fa-check-square"></i> Soal-Soal
-</div>
-      <div id="Soal" class="submenu">
-        <div
-          class="menu-item"
-          onclick="showHTML(this, 'Soal_PG_Pkd.html')"
-        >
-          Soal PG PKD
-        </div>
-        <div
-          class="menu-item"
-          onclick="showHTML(this, 'Soal Essay.html')"
-        >
-          Soal Essay 
-        </div>
-                <div
-          class="menu-item"
-          onclick="showHTML(this, 'Quiz tebak gambar.html')"
-        >
-          Soal Tebak Gambar
-        </div>
-
-        <div
-          class="menu-item"
-          onclick="showHTML(this, 'tictactoe.html')"
-        >
-          Game Tic Tac Toe
-        </div>
-        
-        <div
-          class="menu-item"
-          onclick="showHTML(this, 'Nilai UPO TW.III 2025 Wil.2C TSM.html')"
-        >
-        Nilai UPO TW.III 2025 Wil.2C Tsm
-        </div>
-
-        </div>
-       <!-- SOAL UJI PETIK -->
-         <div class="menu-header" onclick="clearPDF(); toggleSubMenu('Kesehatan', this)">
-  <i class="fas fa-check-square"></i> Kesehatan
-</div>
-      <div id="Kesehatan" class="submenu">
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '12_Tbk4w7buTb75-Xi8X490uq5Rw38eHP')">
-          Provider Kerjasama Wilayah Daop 2 Bd 21 Juli 2025
-        </div>
-        </div>
-       <!-- KEBIKAJAN KESELAMATAN -->
-
-
-      <!-- Laporan / Safety  -->
-<div class="menu-header" onclick="clearPDF(); toggleSubMenu('Safety', this)">
-  <i class="fas fa-check-square"></i> Safety Report
-</div>
-
-      <div id="Safety" class="submenu">
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '10URTJuJZrEjujHG73iJgxiKcTt7_d9WU')"
-        >
-          Laporan Keselamatan dan Kesehatan Kerja
-        </div>
-        
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '15VfkjLhPUJnZErAEoXI5sYpooRREdZZ8')"
-        >
-          Joint Inspection Karangpucung
-        </div>
-        <div class="menu-item">
-          <a
-            href="https://drive.google.com/drive/folders/12IH9kp2aaO6-BM-WeUXSxc1J6lDteWNf?usp=drive_link"
-            target="_blank"
-            style="text-decoration: none; color: inherit;"
-            >Daily Safety Awareness Karangpucung</a
-          >
-        </div>
-
-        <div class="menu-item">
-          <a
-            href="https://docs.google.com/presentation/d/1CRfsWM-uztNbQpaY5weUahIL_mu-zdPI2mQA24co8EA/edit?usp=drive_link"
-            target="_blank"
-            style="text-decoration: none; color: inherit;"
-            >Safety Weekly Report</a
-          >
-        </div>
-
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '12A77kI3rKh7FOTQuGf6jncJp2M0uPvSZ')"
-        >
-          IBPR
-        </div>
-        <div
-          class="menu-item"
-          onclick="showPDF(this, '1Sto2Q8rzM-6mr7zFZ5rHreHtIe1FO0C-')"
-        >
-          Job Safety Analyst
-        </div>
-
-        <div
-          class="menu-item"
-          onclick="showHTML(this, 'form Joint Inspection Knp.html')"
-        >
-          Form JI
-        </div>
-        <div
-          class="menu-item"
-          onclick="showHTML(this, 'Safety_Induction_Prosedur_Knp.html')"
-        >
-          Safety Induction
-        </div>
+      <div class="menu-header" onclick="clearPDF(); toggleSubMenu('Report')">Report</div>
+      <div id="Report" class="submenu">
+        <div class="menu-item" onclick="showPDF(this, '10URTJuJZrEjujHG73iJgxiKcTt7_d9WU')">Laporan Keselamatan dan Kesehatan Kerja</div>
       </div>
     </div>
 
-<div class="content">
-  <div id="contentArea">
-    <h1>Selamat datang di Portal Stasiun Karangpucung 2025</h1>
-    <p>Pilih menu di sebelah kiri untuk melihat informasi lebih lanjut.</p>
-  </div>
-
-  <iframe id="pdfFrame" style="display:none;"></iframe>
-</div>
-
-  <input type="text" id="searchBox" placeholder="Cari..." 
-  onkeypress="if(event.key === 'Enter') cariHalaman()">
-  <button onclick="cariHalaman()">Cari</button>
-
-  <input type="text" id="searchBox" placeholder="Cari..." 
-onkeypress="if(event.key === 'Enter') cariHalaman()">
+    <div class="content">
+      <div id="contentArea">
+        <!-- Default Content Area -->
+        <h1>Selamat datang di Portal Stasiun Indihiang</h1>
+        <p>Pilih menu di sebelah kiri untuk melihat informasi lebih lanjut.</p>
+      </div>
+      <iframe id="pdfFrame" style="display: none;"></iframe>
+    </div>
 
     <script>
       function showHomePage() {
@@ -1079,9 +336,42 @@ onkeypress="if(event.key === 'Enter') cariHalaman()">
         <div class="widget">
           <h3>Taspat</h3>
           <table>
-            <tr><th>Petak Jalan</th><th>Taspat</th><th>KM</th><th>WAD</th><th>Keterangan</th></tr>
-            <tr><td>AW - TSM</td><td>70 kpj</td><td>270+6/4</td><td>TSM/01</td><td></td></tr>
-            <tr><td>IH - RJP</td><td>70 kpj</td><td>265+7 - 263+5</td><td>IH/01</td><td></td></tr>
+            <tr><th>Petak Jalan</th><th>Taspat</th><th>Tanggal</th><th>WAD</th><th>Keterangan</th></tr>
+            <tr><td>IH - RJP</td><td>70 kpj</td><td>01/01/2025</td><td>01 Ih / 01</td><td>01 Taspat tetap / Melindungi Lengkung</td></tr>
+          </table>
+        </div>
+
+        <div class="widget">
+          <h3>Jadwal PPJ</h3>
+          <table>
+            <tr><th>Petak Jalan</th><th>Taspat</th><th>Tanggal</th><th>WAD</th><th>Keterangan</th></tr>
+            <tr><td>IH - RJP</td><td>70 kpj</td><td>01/01/2025</td><td>01 Ih / 01</td><td>01 Taspat tetap / Melindungi Lengkung</td></tr>
+          </table>
+        </div>
+
+        <div class="widget">
+          <h3>Update Sertifikasi dan O.50</h3>
+          <table>
+            <tr><th>Nama</th><th>Nipp</th><th>Jabatan</th><th>Sertifikasi Exp.</th><th>Kecakapan/O.50</th></tr>
+            <tr><td>Yusup Roni</td><td>49314</td><td>KS/Ppka</td><td>12/08/2026</td><td>21/10/2026</td></tr>
+            <tr><td>Heri Heryanto</td><td>52977</td><td>Ppka</td><td>04/04/2027</td><td>06/09/2025</td></tr>
+            <tr><td>Dudi Hoerudin</td><td>62309</td><td>Ppka</td><td>12/08/2026</td><td>06/09/2025</td></tr>
+            <tr><td>Rafitullah Amar Khomeini</td><td>71306</td><td>Ppka</td><td>08/07/2026</td><td>21/06/2026</td></tr>
+          </table>
+        </div>
+
+        <div class="widget">
+          <h3>Update Sertifikasi dan Tanda Kecakapan</h3>
+          <table>
+            <tr><th>Nama</th><th>Nipp</th><th>Jabatan</th><th>Sertifikasi Exp.</th><th>Kecakapan</th></tr>
+            <tr><td>Wagiyanto</td><td>2502020127</td><td>Pjl</td><td>12/12/2028</td><td>15/05/2027</td></tr>
+            <tr><td>Panji Prasetya</td><td>2502020126</td><td>Pjl</td><td>12/12/2028</td><td>15/05/2027</td></tr>
+            <tr><td>Aang Rohmat</td><td>2502020128</td><td>Pjl</td><td>12/12/2028</td><td>15/05/2027</td></tr>
+            <tr><td>Rizki Putra Pamungkas</td><td>2502020124</td><td>Pjl</td><td>12/12/2028</td><td>15/05/2027</td></tr>
+            <tr><td>Eko Bahtiyar</td><td>2502020125</td><td>Pjl</td><td>28/05/2027</td><td>15/05/2027</td></tr>
+            <tr><td>Ade Angga NUgraha</td><td>2502020123</td><td>Pjl</td><td>28/05/2027</td><td>15/05/2027</td></tr>
+            <tr><td>Indra HIdayat</td><td>2502020130</td><td>Pjl</td><td>-</td><td>15/05/2027</td></tr>
+            <tr><td>Budi Kusniawan</td><td>-</td><td>Pjl</td><td>-</td><td>15/05/2027</td></tr>
           </table>
         </div>
 
@@ -1089,102 +379,8 @@ onkeypress="if(event.key === 'Enter') cariHalaman()">
           <h3>Penjagaan Bentuk</h3>
           <table>
             <tr><th>Bentuk</th><th>No</th><th>Tanggal</th><th>Keterangan</th></tr>
-            <tr><th>MS</th><th>01</th><th>19/11/2024</th><th>Sinyal keluar J22 tidak bisa mengindikasikan semb.5</th></tr>
-            <tr><th>BH</th><th>47</th><th>26/04/2025</th><th>PPJ belum Masuk</th></tr>
-          </table>
-        </div>
-
-
-
-        <div class="widget">
-          <h3>Update Sertifikasi dan O.50</h3>
-          <table>
-            <tr><th>Nama</th><th>Nipp</th><th>Jabatan</th><th>Sertifikasi Exp.</th><th>Kecakapan/O.50</th></tr>
-            <tr><td>Yusup Roni</td><td>49314</td><td>KS/Ppka</td><td>12/08/2026</td><td>21/05/2027</td></tr>
-            <tr><td>Nanang Suryana</td><td>48248</td><td>Ppka</td><td>12/06/2027</td><td>21/10/2026</td></tr>
-            <tr><td>Hendra Wijaya</td><td>50803</td><td>Ppka</td><td>29/08/2026</td><td>21/10/2026</td></tr>
-            <tr><td>Yogi Nuryana</td><td>71312</td><td>Ppka</td><td>05/03/2029</td><td>13/03/2027</td></tr>
-          </table>
-        </div>
-
-
-
-
-
-                <div class="widget">
-          <h3>TOP 10 IBPR Stasiun Karangpucung</h3>
-          <table>
-            <tr><th>Identifikasi Bahaya</th><th>Risiko</th><th>Pengendalian Risiko</th><th>Evaluasi Efektifitas</th></tr>
-            <tr>
-<td>
-Potensi kegagalan system dimana salah satu
-stasiun menerima blok tanpa ada nya permintaan dan PPKA stasiun sebelah tidak
-melakukan pemberian blok</td>
-<td>Ka anjlok
-Tabrakan antar KA
-</td>
-<td>
-1. PPKA penerima blok wajib membatalkan blok tersebut sesuai PDPS <br>  
-2. Pengaturan perjalan Kereta Api dilakukan dengan tanya jawab kondisipetak jalan (Warta KA) <br> 
-3. Pembinan teknis penguasaan PDPS secara Berkala <br> 
-4. Dilakukan pengawasan secara langsung pada saat terjadi gangguan dan proses penulisan di buku gangguan serta input gangguan pada SRI</td>
-<td>Cukup Efektif Pengendalian Risiko dengan pengawasan dan pengendalian tsb</td>
-</tr>
-<td>
-Potensi PPKA tidak mencatat gangguan operasional yang terjadi di buku gangguan operasional dan tidak input pada SRI
-</td>
-<td>Ka anjlok
-Tabrakan antar KA
-</td>
-<td>
-1. Pembinaan tentang pentingnya mencatat gangguan operasional yang terjadi di buku gangguan operasional dan input gangguan pada SRI <br>
-2. Dilakukan pengawasan secara langsung pada saat terjadi gangguan dan proses penulisan di buku gangguan serta input gangguan pada SRI <br>
-3. Pengecekan rutin Buku Gangguan Operasional oleh Ks</td>
-<td>Cukup Efektif Pengendalian Risiko dengan pengawasan dan pengendalian tsb</td>
-</tr>
-<td>
-Potensi PPKA kurang aktif berkomunikasi dengan PPKP saat adanya pemindahan persilangan</td>
-<td>Ka anjlok
-Tabrakan antar KA
-</td>
-<td>
-1. Pembinaan tentang pentingnya aktif berkomunikasi kepada PPKP saat adanya pemindahan persilangan <br>
-2. Dilakukan pengawasan secara langsung pada saat terjadi persilangan <br>
-3. Dilakukan pantauan melalui media CCTV yang di pantau Via Hp</td>
-<td>Cukup Efektif Pengendalian Risiko dengan pengawasan dan pengendalian tsb</td>
-</tr>
-<td>
-Potensi PPKA tidak melakukan tunjuk sebut saat
-melayani perjalanan KA dan langsiran
-</td>
-<td>
-Ka anjlok
-Tabrakan antar KA
-</td>
-<td>
-1.Melakukan pembinaan kondisi darurat secara rutin <br>
-2.Melakukan simulasi pada saat terjadi konsisi darurat <br>
-3. Pengawasan secara langsung ataupun melalui media CCTV yang di pantau Via Hp <br>
-3.Pendampingan pada saat terjadi gangguan
-</td>
-<td>Cukup Efektif Pengendalian Risiko dengan pengawasan dan pengendalian tsb</td>
-</tr>
-<td>
-Potensi PPKA tidak melakukakan pertukaran warta
-KA secara tertib pada saat hub blok terganggu
-</td>
-<td>
-Ka anjlok
-Tabrakan antar KA
-</td>
-<td>
-1.Melakukan pembinaan kondisi darurat secara rutin <br>
-2.Melakukan simulasi pada saat terjadi konsisi darurat <br>
-3. Pengawasan secara langsung ataupun melalui media CCTV yang di pantau Via Hp <br>
-3.Pendampingan pada saat terjadi gangguan
-</td>
-<td>Cukup Efektif Pengendalian Risiko dengan pengawasan dan pengendalian tsb</td>
-</tr>
+            <tr><th>MS</th><th>xx</th><th>xx-xxx-xxx</th><th>xxx</th></tr>
+            <tr><th>BH</th><th>xx</th><th>xx-xxx-xxx</th><th>xxx</th></tr>
           </table>
         </div>
         
@@ -1205,17 +401,17 @@ Tabrakan antar KA
         element.classList.add("active");
       }
 
-function toggleSubMenu(id) {
-  const submenu = document.getElementById(id);
-  if (!submenu) return;
+      function toggleSubMenu(id) {
+        document.querySelectorAll(".submenu").forEach((sm) => {
+          if (sm.id !== id) {
+            sm.style.display = "none";
+          }
+        });
+        const submenu = document.getElementById(id);
+        submenu.style.display =
+          submenu.style.display === "block" ? "none" : "block";
+      }
 
-  document.querySelectorAll(".submenu").forEach((sm) => {
-    if (sm !== submenu) sm.style.display = "none";
-  });
-
-  submenu.style.display =
-    submenu.style.display === "block" ? "none" : "block";
-}
       function clearPDF() {
         const frame = document.getElementById("pdfFrame");
         const contentArea = document.getElementById("contentArea");
@@ -1262,35 +458,6 @@ function toggleSubMenu(id) {
           .forEach((item) => item.classList.remove("active"));
         element.classList.add("active");
       }
-
-    window.onerror = function(msg) {
-  console.log("Error JS:", msg);
-};
-function cariHalaman() {
-    let keyword = document.getElementById("searchBox").value.toLowerCase();
-
-    if (keyword.includes("struktur") && keyword.includes("direksi")) {
-        window.location.href = "struktur_org_Direksi.html";
-    } 
-    else if (keyword.includes("gaptek")) {
-        window.location.href = "gaptek.html";
-    } 
-    else if (keyword.includes("home") || keyword.includes("beranda")) {
-        window.location.href = "index.html";
-    } 
-    else {
-        alert("Halaman tidak ditemukan");
-    }
-
-
     </script>
   </body>
 </html>
-
-
-
-
-
-
-
-
