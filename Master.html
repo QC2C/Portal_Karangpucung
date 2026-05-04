@@ -1271,7 +1271,9 @@ let currentSlide = 0;
       frame.style.display = "none";
       document.querySelector(".content").appendChild(frame);
     }
-    
+    window.onerror = function(msg) {
+  console.log("Error JS:", msg);
+};
     </script>
   </body>
 </html>
