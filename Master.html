@@ -1,4 +1,4 @@
-<!DOCTYPE html>rt
+<!DOCTYPE html>
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
@@ -1052,9 +1052,6 @@
     </div>
 
 
-
-    <div class="content">
-      <div id="contentArea">
         <!-- Default Content Area -->
 <h1>Selamat datang di Portal Stasiun Karangpucung 2025</h1>
   <p>Pilih menu di sebelah kiri untuk melihat informasi lebih lanjut.</p>
@@ -1264,29 +1261,7 @@ let currentSlide = 0;
 
   slides.style.width = `${slideCount * 100}%`;
 
-  function showSlide(index) {
-    if (index >= slideCount) currentSlide = 0;
-    else if (index < 0) currentSlide = slideCount - 1;
-    else currentSlide = index;
-
-    slides.style.transform = `translateX(-${currentSlide * (100 / slideCount)}%)`;
-  }
-
-  function nextSlide() {
-    showSlide(currentSlide + 1);
-  }
-
-  function prevSlide() {
-    showSlide(currentSlide - 1);
-  }
-
-  document.querySelector(".prev").onclick = prevSlide;
-  document.querySelector(".next").onclick = nextSlide;
-
-  setInterval(() => {
-    nextSlide();
-  }, 10000);
-
+ 
 
 
          const existingFrame = document.querySelector("iframe#pdfFrame");
