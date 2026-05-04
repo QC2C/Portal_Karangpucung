@@ -1064,6 +1064,9 @@
   onkeypress="if(event.key === 'Enter') cariHalaman()">
   <button onclick="cariHalaman()">Cari</button>
 
+  <input type="text" id="searchBox" placeholder="Cari..." 
+onkeypress="if(event.key === 'Enter') cariHalaman()">
+
     <script>
       function showHomePage() {
         const contentArea = document.getElementById("contentArea");
@@ -1264,21 +1267,25 @@ function toggleSubMenu(id) {
   console.log("Error JS:", msg);
 };
 function cariHalaman() {
-        let keyword = document.getElementById("searchBox").value.toLowerCase();
+    let keyword = document.getElementById("searchBox").value.toLowerCase();
 
-        if (keyword.includes("struktur") && keyword.includes("direksi")) {
-            window.location.href = "struktur_org_Direksi.html";
-        } else {
-            alert("Halaman tidak ditemukan");
-        }
+    if (keyword.includes("struktur") && keyword.includes("direksi")) {
+        window.location.href = "struktur_org_Direksi.html";
+    } 
+    else if (keyword.includes("gaptek")) {
+        window.location.href = "gaptek.html";
+    } 
+    else if (keyword.includes("home") || keyword.includes("beranda")) {
+        window.location.href = "index.html";
+    } 
+    else {
+        alert("Halaman tidak ditemukan");
     }
+
+
     </script>
   </body>
 </html>
-
-
-
-
 
 
 
