@@ -1060,6 +1060,10 @@
   <iframe id="pdfFrame" style="display:none;"></iframe>
 </div>
 
+  <input type="text" id="searchBox" placeholder="Cari..." 
+  onkeypress="if(event.key === 'Enter') cariHalaman()">
+  <button onclick="cariHalaman()">Cari</button>
+
     <script>
       function showHomePage() {
         const contentArea = document.getElementById("contentArea");
@@ -1259,6 +1263,15 @@ function toggleSubMenu(id) {
     window.onerror = function(msg) {
   console.log("Error JS:", msg);
 };
+function cariHalaman() {
+        let keyword = document.getElementById("searchBox").value.toLowerCase();
+
+        if (keyword.includes("struktur") && keyword.includes("direksi")) {
+            window.location.href = "struktur_org_Direksi.html";
+        } else {
+            alert("Halaman tidak ditemukan");
+        }
+    }
     </script>
   </body>
 </html>
